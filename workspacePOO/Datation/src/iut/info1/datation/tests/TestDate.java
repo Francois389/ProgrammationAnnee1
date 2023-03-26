@@ -146,7 +146,7 @@ public class TestDate {
         if (testReussi) {
             System.out.println("Test constructeur Date invalides reussi");
         } else {
-            System.err.println("Echec de test constructeru avec Date "
+            System.err.println("Echec de test constructeur avec Date "
                                + "invalide.");
         }
     }
