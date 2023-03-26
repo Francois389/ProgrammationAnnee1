@@ -80,6 +80,22 @@ public class Personne {
         return dateNaiss;
     }
 
+    @Override
+    public String toString() {
+        return nom + " " + prenom + ", né le " + dateNaiss + ". NIR : " + NIR;
+    }
+    
+    /**
+     * Retourne l'age que la personne aura a l'anné visé.
+     * @param anneeVise
+     * @return
+     */
+    public int ageEn(int anneeVise) {
+        int age;
+        
+        return 0;
+    }
+
     private boolean estValide(String nir, String nom, 
                               String prenom, Date dateNaiss) {
         return    nirEstValide(nir) && nomEstValide(nom) 
@@ -110,6 +126,4 @@ public class Personne {
         }
         return true;
     }
-    
-    
 }

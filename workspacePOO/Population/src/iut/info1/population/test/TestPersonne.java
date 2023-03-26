@@ -27,6 +27,12 @@ public class TestPersonne {
     public static void main(String[] args) {
         testPersonneNonOk();
         testPersonneOk();
+        testToStringPersonne();
+    }
+    
+    
+    private static void testToStringPersonne() {
+        
     }
 
     /**
@@ -99,6 +105,16 @@ public class TestPersonne {
         }
     }
 
+    /**
+     * Permet de vérifier si la combinaison nir, nom, prenom, dateNaiss
+     * est valide pour l'état civil d'une Personne 
+     * selon l'état Français.
+     * @param nir       Le NIR testé
+     * @param nom       Le nom testé
+     * @param prenom    Le prénom testé
+     * @param dateNaiss La date de naissance testé
+     * @return true si l'état civil est valide, false sinon.
+     */
     private static boolean verifierCombinaisonValide(String nir, String nom, 
                                                 String prenom, Date dateNaiss) {
         try {
@@ -128,7 +144,9 @@ public class TestPersonne {
         = {"",     //Chaîne vide
            "   ",  //N'est composé que d'espace
            "13",   //Un chiffre
-           "\"); DROP TABLE USER;" //Injection SQL
+           "\"); DROP TABLE USER;", //Injection SQL
+           "M@rtin",
+           "Dub0is"
            };
         
         /** Liste de prénom invalide selon l'état français */
@@ -136,7 +154,8 @@ public class TestPersonne {
         = {"",     //Chaîne vide
            "   ",  //N'est composé que d'espace
            "13",   //Un chiffre
-           "\"); DROP TABLE USER;" //Injection SQL
+           "\"); DROP TABLE USER;", //Injection SQL
+           "0phélie"
            };
         
         /** Liste de date de naissance invalide*/
@@ -170,6 +189,10 @@ public class TestPersonne {
     /**
      * Permet de vérifier si la combinaison nir, nom , prenom , dateNaiss 
      * est un état civil invalide.
+     * @param nir       Le NIR testé
+     * @param nom       Le nom testé
+     * @param prenom    Le prénom testé
+     * @param dateNaiss La date de naissance testé
      * @return true s'il y a eu génération d'une exception false sinon
      */
     private static boolean verifierCombinaisonInvalide(String nir, String nom, 
