@@ -7,13 +7,12 @@ package iut.info1.population;
 import iut.info1.datation.Date;
 
 /**
- * //TODO Commenter la responsabiliter de la classe Personne
  * Définit une personne.
  * Cette personne est défini par :
  * <ul>
  *     <li>son NIR (dit aussi numéro INSEE)</li>
  *     <li>son nom</li>
- *     <li>son prenom</li>
+ *     <li>son prénom</li>
  *     <li>sa date de naissance</li>
  * </ul>
  * @author François deSaint Palais
@@ -50,7 +49,7 @@ public class Personne {
         super();
         if (!estValide(nIR, nom, prenom, dateNaiss)) {
             throw new IllegalArgumentException("Erreur. "
-                                               + "Une des entrés est inalide");
+                                               + "Une des entrés est invalide");
         }
         NIR = nIR;
         this.nom = nom;
