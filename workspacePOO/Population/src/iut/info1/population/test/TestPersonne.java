@@ -69,6 +69,7 @@ public class TestPersonne {
         = new Personne[  DATE_NAISS_VALIDE.length * NOM_VALIDE.length 
                        * PRENOM_VALIDE.length * NIR_VALIDE.length];
         
+        System.out.println("Debut test constructeur avec valeur valide");
         compteur = 0;
         for (Date dateNaiss : DATE_NAISS_VALIDE) {
             for (String nom : NOM_VALIDE) {
@@ -90,7 +91,7 @@ public class TestPersonne {
             System.err.println("Echec de test constructeur avec Personne"
                                + " valide.");
         } else {
-            System.out.println("Test constructeur Personne valides reussi");
+            System.out.println("\tTest constructeur Personne valides reussi");
             /* On initialise la liste de personne valide 
              * de la classe pour de future test. 
              */
@@ -159,7 +160,7 @@ public class TestPersonne {
         }
         
         if (testReussi) {
-            System.out.println("Test constructeur Personne invalides reussi");
+            System.out.println("\tTest constructeur Personne invalides reussi");
         } else {
             System.out.println("Echec de test constructeur avec Personne"
                                + " invalide.");

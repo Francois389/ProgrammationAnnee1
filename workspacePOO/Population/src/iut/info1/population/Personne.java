@@ -20,6 +20,9 @@ import iut.info1.datation.Date;
  */
 public class Personne {
     
+    private static final String REGEX_PRENOM_INVALIDE 
+    = "[^0-9*-/+&~\\\"#\\\\{(|`_^@)\\[\\]=},?.;:!§ù%¨$£¤²]*";
+
     /** L'âge maximal d'un individu. 
      * Au delà la date de naissance serais jugé invalide. */
     final static int AGE_MAX = 130;
@@ -91,10 +94,8 @@ public class Personne {
 
     private boolean prenomEstValide(String prenom) {
         // TODO écrire le corps de prenomEstValide
-        if (prenom.isBlank()) {
-            return false;
-        }
-        return true;
+        return    !prenom.isBlank() 
+               && prenom.matches(REGEX_PRENOM_INVALIDE);
     }
 
     private boolean nomEstValide(String nom) {
