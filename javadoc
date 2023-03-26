@@ -1,0 +1,17 @@
+javadoc -d doc\info1\affectation iut.info1.affectation
+javadoc -d doc\info1\cahiervacancesb iut.info1.cahiervacancesb
+javadoc -d doc\info1\condition1s iut.info1.condition1s
+javadoc -d doc\info1\condition2s iut.info1.condition2s
+javadoc -d doc\info1\condition3s iut.info1.condition3s
+javadoc -d doc\info1\conditionb iut.info1.conditionb
+javadoc -d doc\info1\constante iut.info1.constante
+javadoc -d doc\info1\datation iut.info1.datation
+javadoc -d doc\info1\exercicesuplementaire iut.info1.exercicesuplementaire
+javadoc -d doc\info1\initiationb iut.info1.initiationb
+javadoc -d doc\info1\iteration1s iut.info1.iteration1s
+javadoc -d doc\info1\iteration2s iut.info1.iteration2s
+javadoc -d doc\info1\iteration3s iut.info1.iteration3s
+javadoc -d doc\info1\iterationb iut.info1.iterationb
+javadoc -d doc\info1\typage iut.info1.typage
+
+javadoc -d doc\utilitaire iut.utilitaire

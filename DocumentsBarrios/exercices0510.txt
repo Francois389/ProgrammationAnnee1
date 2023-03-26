@@ -1,0 +1,84 @@
+Exercices de programmation du 5 octobre 2022
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+
+Exercice 1 :
+----------
+Ecrire un programme java qui demande le prénom de l'utilisateur, 
+son nom, son année de naissance et son lieu de naissance
+en gérant au mieux la saisie (par rapport au tampon d'entrée).
+
+Calculer son age en 2022 sans tenir compte du jour et du mois 
+(<=> arrondi en années par défaut)
+
+Afficher alors son état civil sous la forme : 
+
+	Prénom NOM (nn ans)
+        né(e) en .... à ...
+
+
+Exercice 2 :
+----------
+Permutation de deux variables :
+
+	int n; // les deux variables à permuter
+      int p;
+
+      /* demander les valeurs de n et p sur la console texte */
+
+      /* afficher les valeurs des variables avant permutation */
+        
+      /* coder l'algorithme de permutation */
+
+      /* afficher les valeurs des variables après permutation */
+
+Votre algorithme de permutation est-il valable pour d'autres types que int ?  
+Conclusion ?
+
+
+Exercice 3 :
+----------
+Permutation circulaire de trois variables a, b , c :
+
+     a ---> b ---> c ---> a
+
+     => déclarer les données
+     => demander les valeurs à permuter sur la console texte
+     => afficher les valeurs des variables avant permutation
+        
+     => coder l'algorithme de permutation circulaire
+     => afficher les valeurs des variables après permutation
+
+
+Exercice 4 :
+----------
+Refaire le même exercice que l'exercice 2 mais en permutant 2 chaînes de caractères.
+
+=> dessiner un schéma mémoire de la permutation 
+   (en ayant soin de représenter les références et les objets référencés)
+
+
+Exercice 5 :
+----------
+Une année est bissextile si elle est divisible par 4 mais pas par 100 
+ou bien divisible par 400
+
+Ainsi :  2014 n'est pas bissextile (pas divisible ni par 4... ni par 100 ou 400)
+         2020 est bissextile  (divisible par 4 mais pas par 100)
+         1900 n'est pas bissextile (divisible par 4 et par 100 mais pas par 400)
+         2000 est bissextile (divisible par 400)
+
+Ecrire un programme java qui :
++ demande à l'utilisateur d'entrer un numéro d'année sur la console texte, 
++ calcule un booléen indiquant si l'année entrée est bissextile ou non
++ affiche la valeur du booléen sur la sortie texte standard
+
+
+
+
+
+
+
+
+
+

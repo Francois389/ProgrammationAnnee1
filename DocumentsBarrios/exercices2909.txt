@@ -1,0 +1,63 @@
+Exercices de programmation du 29 septembre 2022
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Exercice 1 :
+----------
+Examinez le code source ChasseAuDahu.java :
+   =>	Identifiez les commentaires
+   =>	Identifiez les unités lexicales : mots clés, identificateurs, littéraux 
+      et opérateurs
+   =>	Observez/notez les règles de formation utilisées pour les identificateurs
+   =>	Observez/notez la disposition du code : alignement, usage des espaces 
+      et des sauts de ligne, usage des commentaires…
+   => Lisez les conventions de codage "java code conventions" (en anglais !)
+
+   => Quelles sont les unités lexicales les plus fréquentes/importantes 
+      pour la lisibilité/compréhensibilité des instructions ?
+
+   =>	Comment pourrait-on diminuer l’usage des commentaires ?
+ 
+
+Exercice 2 à faire en autonomie : 
+-------------------------------
+   •	découvrir l’historique des principaux langages de programmation et ce que l’on appelle 
+      « langage machine », « assembleur », « langage de programmation évolué ».
+   •	découvrir ce qu’est un « langage source », un « code source », un « langage cible », 
+      un « code cible », un « code intermédiaire », un « interpréteur », un « compilateur », 
+      une « machine virtuelle ». 
+
+
+Exercice 3 :
+----------
+Tester l'arithmétique sur les types entiers et caractère
+	=> les types primitifs byte, char, short, int, long
+         et leur codage en binaire
+      => les constantes littérales (décimales, hexadécimales...)
+      => les expressions avec l'arithmétique entière + - * / %
+         avec l'arithmétique binaire en complément à 2 sous-jacente
+      => les définitions présentes dans les classes enveloppes de java.lang : 
+         Byte, Character, Short, Integer, Long  (javadoc en anglais !)
+      => les dépassements des limites, les propriétés des opérations
+         (associativité, division par 0...)
+	=> les conversions entre types primitifs avec les opérateurs
+         (et notamment avec l'affectation)
+      => le type caractère char et le code unicode (www.unicode.org)
+      => l'arithmétique binaire sur les entiers : ~ & |   (cf. cours de math) 
+
+Bref, testez ce que vous avez découvert sur ces types dans les enseignements
+"Introduction à l'architecture des ordinateurs", "Mathématiques discrètes",
+"Initiation au développement".
+
+Vous pouvez utiliser l'interpréteur jshell dans un premier temps pour mieux observer 
+rapidement les connaissances et les comportements que vous ne maitrisez pas bien.
+Ce qui vous permettra d'écrire au fur et à mesure des programmes de tests
+(codes sources .java) dans lesquels vous mettrez des remarques en commentaires
+concernant ce que vous avez appris de certaines instructions.
+
+Gardez ensuite précieusement ces programmes de découvertes car vous pourrez vous
+y référer et les enrichir au fur et à mesure de votre progression.
+
+
+
+
+

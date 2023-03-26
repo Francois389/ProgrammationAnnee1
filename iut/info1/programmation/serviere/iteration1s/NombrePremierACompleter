@@ -1,0 +1,38 @@
+/*
+ * Ce programme détermine si un nombre entré par l'utilisteur est premier.
+ * fichier NombrePremier.java                       11/22
+ */
+package notiondebase.iteration;
+
+import java.util.Scanner;
+
+/**
+ * Ce programme détermine si un nombre entier donné par l'utilisateur est
+ * premier ou pas.
+ * 
+ * @author INFO1
+ * @version 1.0
+ * 
+ */
+public class NombrePremier {
+
+	/**
+	 * Programme principal
+	 * @param args argument non utilisé
+	 */
+	public static void main(String[] args) {
+
+		// déclaration d'un objet de type Scanner pour effectuer les saisies
+		Scanner entree = new Scanner(System.in);
+
+		int nombre; 		// nombre entré par l'utilisateur
+			
+
+		// saisie du nombre entier
+		System.out.print("Entrez un nombre : ");
+		nombre = entree.nextInt();
+
+		// TODO : on traite les cas particuliers, puis le cas général
+		
+	}
+}
