@@ -85,7 +85,8 @@ public class Personne {
 
     private boolean dateNaissEstValide(Date dateDeNaissance) {
         // TODO écrire corps de dateNaissEstValide
-        return false;
+        return dateDeNaissance.getAaaa() >= 1900 ||
+                dateDeNaissance.getAaaa() < 2024;
     }
 
     private boolean prenomEstValide(String prenom) {
@@ -93,15 +94,12 @@ public class Personne {
         if (prenom.isBlank()) {
             return false;
         }
-        return false;
+        return true;
     }
 
     private boolean nomEstValide(String nom) {
         // TODO écrire le corps de nomEstValide
-        if (nom.isBlank()) {
-            return false;
-        }
-        return false;
+        return prenomEstValide(nom);
     }
 
     private boolean nirEstValide(String nir) {
@@ -109,7 +107,7 @@ public class Personne {
         if (nir.isBlank()) {
             return false;
         }
-        return false;
+        return true;
     }
     
     
