@@ -32,8 +32,29 @@ public class TestPersonne {
     
     
     private static void testToStringPersonne() {
+        boolean testReussi = true;
         
+        System.out.println("Debut test méthode toString ");
+        for (int i = 0; i < personneValide.length; i++) {
+            testReussi = testReussi && 
+            personneValide[i].toString().equals(
+                combinaisonToString(nirValide[i%nirValide.length],
+                                    nomValide[i%nomValide.length],
+                                    prenomValide[i%prenomValide.length],
+                                    dateNaissValide[i%dateNaissValide.length]));
+        }
+        if (testReussi) {
+            System.out.println("\tTest méthode toString reussi");
+        } else {
+            System.out.println("Echec de test méthode toString.");
+        }
     }
+
+    private static String combinaisonToString(String nir, String nom, 
+    String prenom, Date dateNaiss) {
+        return nom + " " + prenom + ", né le " + dateNaiss + ". NIR : " + nir;
+    }
+
 
     /**
      * Test du constructeur Personne avec des donnée valide.
@@ -42,6 +63,11 @@ public class TestPersonne {
      */
     private static void testPersonneOk() {
         //TODO Écrire les tests
+        /** Ce sont des numéros fictif, généré aléatoirement */
+        final String[] NIR_VALIDE 
+        = {"2010301601123", "1020402732987",
+           "2040203001234", "1030504865432", "2020302198765"};
+
         final String[] NOM_VALIDE 
         = {"de Saint Palais",
            "Dupont", "Martin", "Dubois", "Lefebvre", "Moreau", "Lambert", 
@@ -56,11 +82,6 @@ public class TestPersonne {
            "Clément", "Benjamin", "Lucas", "Theo", "Paul", "N'Golo", 
            "Corentin", "Adrien", "Tiemoué", "Thomas", "Kingsley", 
            "Antoine", "Kylian", "Karim", "Olivier", "Ousmane", "Florian"};
-        
-        /** Ce sont des numéros fictif, généré aléatoirement */
-        final String[] NIR_VALIDE 
-        = {"2010301601123", "1020402732987",
-           "2040203001234", "1030504865432", "2020302198765"};
 
         final Date[] DATE_NAISS_VALIDE
         = {new Date(10, 8, 1995),
@@ -70,27 +91,22 @@ public class TestPersonne {
            new Date(29, 7, 1992)
           };
         boolean testReussi = true;
-        int compteur;
-        Personne[] personneValideTest 
-        = new Personne[  DATE_NAISS_VALIDE.length * NOM_VALIDE.length 
-                       * PRENOM_VALIDE.length * NIR_VALIDE.length];
+        Personne[] personneValideTest = new Personne[NOM_VALIDE.length];
         
         System.out.println("Debut test constructeur avec valeur valide");
-        compteur = 0;
-        for (Date dateNaiss : DATE_NAISS_VALIDE) {
-            for (String nom : NOM_VALIDE) {
-                for (String prenom : PRENOM_VALIDE) {
-                    for (String nir : NIR_VALIDE) {
-                        testReussi = testReussi && 
-                                     verifierCombinaisonValide(nir,nom,prenom,
-                                                                 dateNaiss);
-                        if (testReussi) {
-                            personneValideTest[compteur] 
-                            = new Personne(nir, nom, prenom, dateNaiss);
-                            compteur ++;
-                        }
-                    }
-                }
+        for (int i = 0; i < NOM_VALIDE.length; i++) {
+            testReussi 
+            = testReussi && verifierCombinaisonValide(
+                            NIR_VALIDE[i%NIR_VALIDE.length],
+                            NOM_VALIDE[i%NOM_VALIDE.length],
+                            PRENOM_VALIDE[i%PRENOM_VALIDE.length],
+                            DATE_NAISS_VALIDE[i%DATE_NAISS_VALIDE.length]);
+            if (testReussi) {
+                personneValideTest[i] 
+                = new Personne(NIR_VALIDE[i%NIR_VALIDE.length],
+                        NOM_VALIDE[i%NOM_VALIDE.length],
+                        PRENOM_VALIDE[i%PRENOM_VALIDE.length],
+                        DATE_NAISS_VALIDE[i%DATE_NAISS_VALIDE.length]);
             }
         }
         if (!testReussi) {
@@ -102,6 +118,10 @@ public class TestPersonne {
              * de la classe pour de future test. 
              */
             personneValide = personneValideTest;
+            nirValide = NIR_VALIDE;
+            nomValide = NOM_VALIDE;
+            prenomValide = PRENOM_VALIDE;
+            dateNaissValide = DATE_NAISS_VALIDE;
         }
     }
 
