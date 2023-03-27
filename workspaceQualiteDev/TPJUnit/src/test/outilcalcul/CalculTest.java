@@ -128,5 +128,15 @@ class CalculTest {
         }
     
     }
+    
+    @Test
+    @DisplayName("toString")
+    void testToString() {
+    	//TODO Ecrire le test de toString
+    	String[] a;
+    	for (int i = 0; i < VAL_DROITE.length; i++) {
+			
+		}
+    }
 
 }
