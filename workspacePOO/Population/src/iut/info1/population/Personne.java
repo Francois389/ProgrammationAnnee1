@@ -26,6 +26,15 @@ public class Personne {
     /** L'âge maximal d'un individu. 
      * Au delà la date de naissance serais jugé invalide. */
     final static int AGE_MAX = 130;
+
+    /** 
+     * Regex pour vérifier la validiter du NIR. Construit grâce à la page
+     * Wikipedia du NIR. 
+     * */
+    private static final String REGEX_NIR_VALIDE 
+    = "^[1-478][0-9]{2}(0[1-9]|1[012]|[23][0-9]|4[012]|[5-9][0-9])"
+      + "(0[1-9]|[1-8][0-9]|9[0-6]|2[AaBb])"
+      + "(0[1-9][0-9]|0[0-9][1-9]|[1-9][0-9]{2}){2}(0[1-9]|[1-8][0-9]|9[0-7])$";
     
     /** Le Numéro d'Inscription au Répertoire 
      * des personnes physiques il identifie chaque individu 
@@ -104,8 +113,9 @@ public class Personne {
 
     private boolean dateNaissEstValide(Date dateDeNaissance) {
         // TODO écrire corps de dateNaissEstValide
-        return dateDeNaissance.getAaaa() >= 1900 ||
-                dateDeNaissance.getAaaa() < 2024;
+        // TODO Récupérer l'année actuelle pour vérifier qu'une date de naissance ne soit pas dans le future.
+        return dateDeNaissance.getAaaa() >= 1900 &&
+               dateDeNaissance.getAaaa() <= 2023;
     }
 
     private boolean prenomEstValide(String prenom) {
@@ -115,15 +125,10 @@ public class Personne {
     }
 
     private boolean nomEstValide(String nom) {
-        // TODO écrire le corps de nomEstValide
         return prenomEstValide(nom);
     }
 
     private boolean nirEstValide(String nir) {
-        // TODO écrire le corps de nirEstValide
-        if (nir.isBlank()) {
-            return false;
-        }
-        return true;
+        return nir.matches(REGEX_NIR_VALIDE);
     }
 }

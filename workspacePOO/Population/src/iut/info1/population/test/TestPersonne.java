@@ -1,229 +1,111 @@
 /**
- * TestPersonne.java                       23 mars 2023
+ * TestPersonne.java                       29 mars 2023
  * IUT de Rodez, pas de copyleft, pas de copyright
  */
 package iut.info1.population.test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import iut.info1.datation.Date;
 import iut.info1.population.Personne;
 
 /**
- * Test unitaire de la Classe Personne.
- * @author François de Saint Palais
+ * //TODO Commenter la responsabilités de la classe TestPersonne
+ * @author francois
+ *
  */
-public class TestPersonne {
-    private static String[] nirValide;
-    private static String[] nomValide;
-    private static String[] prenomValide;
-    private static Date[] dateNaissValide;    
-    private static Personne[] personneValide;
+class TestPersonne {
 
     /**
-     * Appelle des différentes méthodes de tests.
-     * @param args inutilisé
+     * Test method for {@link iut.info1.population.Personne#Personne(java.lang.String, java.lang.String, java.lang.String, iut.info1.datation.Date)}.
      */
-    public static void main(String[] args) {
-        testPersonneNonOk();
-        testPersonneOk();
-        testToStringPersonne();
+    @Test
+    @DisplayName ("TestConstructeur NotOk")
+    void testPersonneNotOk() {
+        assertThrows(IllegalArgumentException.class, 
+        ()->new Personne("0","François","de Saint Palais",new Date(1,1,2000)));
+        assertThrows(IllegalArgumentException.class, 
+        ()->new Personne("100010100100101","","de Saint Palais",new Date(1,1,2000)));
+        assertThrows(IllegalArgumentException.class, 
+        ()->new Personne("100010100100101","François","",new Date(1,1,2000)));
+        assertThrows(IllegalArgumentException.class, 
+        ()->new Personne("100010100100101","François","de Saint Palais",new Date(1,1,2040)));
     }
     
-    
-    private static void testToStringPersonne() {
-        boolean testReussi = true;
-        
-        System.out.println("Debut test méthode toString ");
-        for (int i = 0; i < personneValide.length; i++) {
-            testReussi = testReussi && 
-            personneValide[i].toString().equals(
-                combinaisonToString(nirValide[i%nirValide.length],
-                                    nomValide[i%nomValide.length],
-                                    prenomValide[i%prenomValide.length],
-                                    dateNaissValide[i%dateNaissValide.length]));
-        }
-        if (testReussi) {
-            System.out.println("\tTest méthode toString reussi");
-        } else {
-            System.out.println("Echec de test méthode toString.");
-        }
-    }
-
-    private static String combinaisonToString(String nir, String nom, 
-    String prenom, Date dateNaiss) {
-        return nom + " " + prenom + ", né le " + dateNaiss + ". NIR : " + nir;
-    }
-
-
-    /**
-     * Test du constructeur Personne avec des donnée valide.
-     * Si tous les tests ont réussi cette méthode initialisera
-     * la liste de Personne personneValide pour d'autre test.
-     */
-    private static void testPersonneOk() {
-        //TODO Écrire les tests
-        /** Ce sont des numéros fictif, généré aléatoirement */
-        final String[] NIR_VALIDE 
-        = {"2010301601123", "1020402732987",
-           "2040203001234", "1030504865432", "2020302198765"};
-
-        final String[] NOM_VALIDE 
-        = {"de Saint Palais",
-           "Dupont", "Martin", "Dubois", "Lefebvre", "Moreau", "Lambert", 
-           "Lloris", "Maignan", "Mandanda", "Varane", "Kimpembe", "Koundé", 
-           "Lenglet", "Pavard", "Digne", "Hernandez", "Pogba", "Kanté", 
-           "Tolisso", "Rabiot", "Bakayoko", "Lemar", "Coman", "Griezmann", 
-           "Mbappé", "Benzema", "Giroud", "Dembele", "Thauvin"};
-        
-        final String[] PRENOM_VALIDE
-        = {"François",
-           "Hugo", "Mike", "Steve", "Raphaël", "Presnel", "Jules", 
-           "Clément", "Benjamin", "Lucas", "Theo", "Paul", "N'Golo", 
-           "Corentin", "Adrien", "Tiemoué", "Thomas", "Kingsley", 
-           "Antoine", "Kylian", "Karim", "Olivier", "Ousmane", "Florian"};
-
-        final Date[] DATE_NAISS_VALIDE
-        = {new Date(10, 8, 1995),
-           new Date(2, 11, 1987),
-           new Date(21, 4, 2000),
-           new Date(15, 12, 1973),
-           new Date(29, 7, 1992)
-          };
-        boolean testReussi = true;
-        Personne[] personneValideTest = new Personne[NOM_VALIDE.length];
-        
-        System.out.println("Debut test constructeur avec valeur valide");
-        for (int i = 0; i < NOM_VALIDE.length; i++) {
-            testReussi 
-            = testReussi && verifierCombinaisonValide(
-                            NIR_VALIDE[i%NIR_VALIDE.length],
-                            NOM_VALIDE[i%NOM_VALIDE.length],
-                            PRENOM_VALIDE[i%PRENOM_VALIDE.length],
-                            DATE_NAISS_VALIDE[i%DATE_NAISS_VALIDE.length]);
-            if (testReussi) {
-                personneValideTest[i] 
-                = new Personne(NIR_VALIDE[i%NIR_VALIDE.length],
-                        NOM_VALIDE[i%NOM_VALIDE.length],
-                        PRENOM_VALIDE[i%PRENOM_VALIDE.length],
-                        DATE_NAISS_VALIDE[i%DATE_NAISS_VALIDE.length]);
-            }
-        }
-        if (!testReussi) {
-            System.err.println("Echec de test constructeur avec Personne"
-                               + " valide.");
-        } else {
-            System.out.println("\tTest constructeur Personne valides reussi");
-            /* On initialise la liste de personne valide 
-             * de la classe pour de future test. 
-             */
-            personneValide = personneValideTest;
-            nirValide = NIR_VALIDE;
-            nomValide = NOM_VALIDE;
-            prenomValide = PRENOM_VALIDE;
-            dateNaissValide = DATE_NAISS_VALIDE;
-        }
+    @Test
+    @DisplayName ("TestConstructeur Ok")
+    void testPersonneOk() {
+        //TODO Ecrire les test du constructeur ok
+//        assertDoesNotThrow(new Personne())
     }
 
     /**
-     * Permet de vérifier si la combinaison nir, nom, prenom, dateNaiss
-     * est valide pour l'état civil d'une Personne 
-     * selon l'état Français.
-     * @param nir       Le NIR testé
-     * @param nom       Le nom testé
-     * @param prenom    Le prénom testé
-     * @param dateNaiss La date de naissance testé
-     * @return true si l'état civil est valide, false sinon.
+     * Test method for {@link iut.info1.population.Personne#getNIR()}.
      */
-    private static boolean verifierCombinaisonValide(String nir, String nom, 
-                                                String prenom, Date dateNaiss) {
-        try {
-            new Personne(nir, nom, prenom, dateNaiss);
-            return true;
-        } catch (IllegalArgumentException e) {
-            System.err.printf("Echec de test pour les valeur : %s, %s, %s, %s%n",
-                    nir,nom,prenom,dateNaiss);
-            return false;
-        }
+    @Test
+    void testGetNIR() {
+        fail("Not yet implemented");
     }
 
     /**
-     * Test du constructeur Personne avec des données INvalides
+     * Test method for {@link iut.info1.population.Personne#getNom()}.
      */
-    private static void testPersonneNonOk() {
-        /** Liste de NIR invalide selon l'état français */
-        final String[] nirInvalide 
-        = {"0",                //Il faut 15 caractère
-           "0123456789012345", //Pas plus de 15 caractère
-           "00000000000000",   //Invalide
-           ""                  //Chaîne vide
-           };  
-        
-        /** Liste de nom invalide selon l'état français */
-        final String[] nomInvalide
-        = {"",     //Chaîne vide
-           "   ",  //N'est composé que d'espace
-           "13",   //Un chiffre
-           "\"); DROP TABLE USER;", //Injection SQL
-           "M@rtin",
-           "Dub0is"
-           };
-        
-        /** Liste de prénom invalide selon l'état français */
-        final String[] prenomInvalide
-        = {"",     //Chaîne vide
-           "   ",  //N'est composé que d'espace
-           "13",   //Un chiffre
-           "\"); DROP TABLE USER;", //Injection SQL
-           "0phélie"
-           };
-        
-        /** Liste de date de naissance invalide*/
-        final Date[] dateInvalide
-        = {new Date(1, 1, 1850),
-           new Date(1,1,2024)
-        };
-        boolean testReussi = true;
-        
-        System.out.println("Debut test constructeur avec valeur invalide");
-        for (Date date : dateInvalide) {
-            for (String nom : nomInvalide) {
-                for (String prenom : prenomInvalide) {
-                    for (String nir : nirInvalide) {
-                        testReussi = testReussi && 
-                                     verifierCombinaisonInvalide(nir,nom,prenom,
-                                                                 date);
-                    }
-                }
-            }
-        }
-        
-        if (testReussi) {
-            System.out.println("\tTest constructeur Personne invalides reussi");
-        } else {
-            System.out.println("Echec de test constructeur avec Personne"
-                               + " invalide.");
-        }
+    @Test
+    void testGetNom() {
+        fail("Not yet implemented");
     }
-    
+
     /**
-     * Permet de vérifier si la combinaison nir, nom , prenom , dateNaiss 
-     * est un état civil invalide.
-     * @param nir       Le NIR testé
-     * @param nom       Le nom testé
-     * @param prenom    Le prénom testé
-     * @param dateNaiss La date de naissance testé
-     * @return true s'il y a eu génération d'une exception false sinon
+     * Test method for {@link iut.info1.population.Personne#getPrenom()}.
      */
-    private static boolean verifierCombinaisonInvalide(String nir, String nom, 
-                                               String prenom, Date dateNaiss) {
-        try {
-            new Personne(nir, nom, prenom, dateNaiss);
-            System.out.printf("Echec de test pour les valeur : %s, %s, %s, %s%n",
-                    nir,nom,prenom,dateNaiss);
-            return false;
-        } catch (IllegalArgumentException e) {
-            return true;
-        }
+    @Test
+    void testGetPrenom() {
+        fail("Not yet implemented");
     }
+
+    /**
+     * Test method for {@link iut.info1.population.Personne#getDateNaiss()}.
+     */
+    @Test
+    void testGetDateNaiss() {
+        fail("Not yet implemented");
+    }
+
+    /**
+     * Test method for {@link iut.info1.population.Personne#toString()}.
+     */
+    @Test
+    void testToString() {
+        fail("Not yet implemented");
+    }
+
+    /**
+     * Test method for {@link iut.info1.population.Personne#ageEn(int)}.
+     */
+    @Test
+    void testAgeEn() {
+        fail("Not yet implemented");
+    }
+
+    /**
+     * Test method for {@link java.lang.Object#hashCode()}.
+     */
+    @Test
+    void testHashCode() {
+        fail("Not yet implemented");
+    }
+
+    /**
+     * Test method for {@link java.lang.Object#equals(java.lang.Object)}.
+     */
+    @Test
+    void testEquals() {
+        fail("Not yet implemented");
+    }
+
 }

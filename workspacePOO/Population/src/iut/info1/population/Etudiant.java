@@ -17,7 +17,7 @@ public class Etudiant extends Personne {
     
     public Etudiant(String nIR, String nom, String prenom, Date dateNaiss,String numeroEtudiant) {
         super(nIR, nom, prenom, dateNaiss);
-        // TODO Auto-generated constructor stub
+        // TODO Vérifier la validité des informations
         this.numeroEtudiant = numeroEtudiant;
     }
 

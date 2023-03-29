@@ -63,7 +63,10 @@ public class Date {
     /* non javadoc - @see java.lang.Object#toString() */
     @Override
     public String toString() {
-        return getJj() + SEPARATEUR + getMm() + SEPARATEUR + getAaaa() ;//stub
+        return ((""+getJj()).length() < 2 ? "0" + getJj() : getJj())
+               + SEPARATEUR + 
+               ((""+getMm()).length() < 2 ? "0" + getMm() : getMm()) 
+               + SEPARATEUR + getAaaa();
     }
 
     /*
