@@ -5,6 +5,9 @@ package iut.info1.datation.tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -44,16 +47,18 @@ class TestDate {
 	}
 	
 	@Test
-	void testDateOk() {
-		assertDoesNotThrow(()->new Date(1 ,1 ,1850));
-		assertDoesNotThrow(()->new Date(31,12,2100));
-		assertDoesNotThrow(()->new Date(15,1 ,2023));
-		assertDoesNotThrow(()->new Date(15,12,2023));
-		assertDoesNotThrow(()->new Date(1 ,6 ,2023));
-		assertDoesNotThrow(()->new Date(28,2 ,2023));
-		assertDoesNotThrow(()->new Date(29,2 ,2020));
-		assertDoesNotThrow(()->new Date(31,3 ,2020));
-		assertDoesNotThrow(()->new Date(31,8 ,2020));
+	void testDateOk() {		
+		List<Date> correctes;
+		correctes = new ArrayList<>(10);
+		correctes.add(new Date(1 ,1 ,1850));
+		correctes.add(new Date(31,12,2100));
+		correctes.add(new Date(15,1 ,2023));
+		correctes.add(new Date(15,12,2023));
+		correctes.add(new Date(1 ,6 ,2023));
+		correctes.add(new Date(28,2 ,2023));
+		correctes.add(new Date(29,2 ,2020));
+		correctes.add(new Date(31,3 ,2020));
+		correctes.add(new Date(31,8 ,2020));
 	}
 	
 	@Test
