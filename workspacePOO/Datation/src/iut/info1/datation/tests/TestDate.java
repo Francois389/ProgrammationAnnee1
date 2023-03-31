@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +19,22 @@ import iut.info1.datation.Date;
  *
  */
 class TestDate {
+
+	private List<Date> correctes;
+	
+	@BeforeEach
+	void regenererTest () {
+		correctes = new ArrayList<>(10);
+		correctes.add(new Date(1 ,1 ,1850));
+		correctes.add(new Date(31,12,2100));
+		correctes.add(new Date(15,1 ,2023));
+		correctes.add(new Date(15,12,2023));
+		correctes.add(new Date(1 ,6 ,2023));
+		correctes.add(new Date(28,2 ,2023));
+		correctes.add(new Date(29,2 ,2020));
+		correctes.add(new Date(31,3 ,2020));
+		correctes.add(new Date(31,8 ,2020));
+	}
 
 	@Test
 	@DisplayName ("testDateNotOk")
@@ -88,6 +105,39 @@ class TestDate {
 	    assertEquals("31/12/2022", new Date(31,12,2022).toString());
 	    assertEquals("31/01/2022", new Date(31,1,2022).toString());	    
 	    assertEquals("01/12/2022", new Date(1,12,2022).toString());
+	}
+	
+	@Test
+	void testEquals() {
+		Date test1;
+		Date test2;
+		
+		test1 = new Date(1,1,1850);
+		test2 = new Date(1,1,1850);
+		assertEquals(test1,test2);
+
+		test1 = new Date(1,1,1970);
+		test2 = new Date(1,1,1970);
+		assertEquals(test1,test2);
+
+		test1 = new Date(31,12,2100);
+		test2 = new Date(31,12,2100);
+		assertEquals(test1,test2);
+
+		test1 = new Date(29,2,2024);
+		test2 = new Date(29,2,2024);
+		assertEquals(test1,test2);
+
+		test1 = new Date(23,6,2023);
+		test2 = new Date(23,6,2023);
+		assertEquals(test1,test2);
+	}
+	
+	@Test
+	void testCompareTo () {
+		assertTrue(1 <= correctes.get(0).compareTo(correctes.get(1)));
+		assertTrue(0 == correctes.get(0).compareTo(correctes.get(0)));
+		assertTrue(-1 >= correctes.get(1).compareTo(correctes.get(0)));
 	}
 	
 
