@@ -5,13 +5,15 @@
 
 package iut.info1.datation;
 
+import java.util.Objects;
+
 /**
  * Date grégorienne de la forme jj/mm/aaaa
  * dans une période AN_MIN à AN_MAX
  *
  * @author François de Saint Palais
  */
-public class Date {
+public class Date implements Comparable<Date>{
 
     /** Numéro d'année minimal du calendrier */
     public static final int AN_MIN = 1850;
@@ -69,10 +71,22 @@ public class Date {
                + SEPARATEUR + getAaaa();
     }
 
-    /*
-     * @Override public int compareTo(Date other) { return
-     * Integer.compare(this.dateHache, other.dateHache); }
-     */
+    @Override
+	public int hashCode() {
+		return Objects.hash(dateHache);    
+	}
+    
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Date other = (Date) obj;
+		return dateHache == other.dateHache;
+	}
 
 /** Vérifier la validité d'une date grégorienne
     * @param jour  jour de la date
@@ -80,7 +94,7 @@ public class Date {
     * @param annee année de la date
     * @return      true si la date est valide, false sinon
     */
-   public static boolean isValide(int jour, int mois, int annee) {
+   private static boolean isValide(int jour, int mois, int annee) {
        
        return     AN_MIN <= annee && annee <= AN_MAX 
               &&       1 <= mois  &&  mois <=   12   
@@ -96,4 +110,9 @@ public class Date {
        return      annee % 4 == 0 
                && (annee % 100 != 0 || annee % 400 == 0);
    }
+
+	@Override
+	public int compareTo(Date o) {
+		return this.dateHache - o.dateHache;
+	}
 }
