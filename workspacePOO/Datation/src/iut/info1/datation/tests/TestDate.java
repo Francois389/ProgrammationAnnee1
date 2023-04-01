@@ -131,13 +131,41 @@ class TestDate {
 		test1 = new Date(23,6,2023);
 		test2 = new Date(23,6,2023);
 		assertEquals(test1,test2);
+		
+		for (Date date : correctes) {
+		    test1 = date;
+		    test2 = new Date(date.getJj(),date.getMm(),date.getAaaa());
+		    assertEquals(test1,test2);
+        }
 	}
 	
 	@Test
 	void testCompareTo () {
-		assertTrue(1 <= correctes.get(0).compareTo(correctes.get(1)));
+		assertTrue(-1 >= correctes.get(0).compareTo(correctes.get(1)));
 		assertTrue(0 == correctes.get(0).compareTo(correctes.get(0)));
-		assertTrue(-1 >= correctes.get(1).compareTo(correctes.get(0)));
+		assertTrue(1 <= correctes.get(1).compareTo(correctes.get(0)));
+		for (int i = 1; i < correctes.size(); i++) {
+		    assertTrue(-1 >= correctes.get(0).compareTo(correctes.get(i)));            
+        }
+		for (int i = 2; i < correctes.size(); i++) {
+		    assertTrue(1 <= correctes.get(1).compareTo(correctes.get(i)));            
+		}
+		for (Date date : correctes) {
+		    assertTrue( 0 == date.compareTo(date));                        
+        }           
+	}
+	
+	@Test
+	void testisBissextile () {
+	    assertTrue(correctes.get(6).isBissextile());
+	    assertTrue(correctes.get(7).isBissextile());
+	    assertTrue(correctes.get(8).isBissextile());
+	    assertFalse(correctes.get(0).isBissextile());
+	    assertFalse(correctes.get(1).isBissextile());
+	    assertFalse(correctes.get(2).isBissextile());
+	    assertFalse(correctes.get(3).isBissextile());
+	    assertFalse(correctes.get(4).isBissextile());
+	    assertFalse(correctes.get(5).isBissextile());
 	}
 	
 

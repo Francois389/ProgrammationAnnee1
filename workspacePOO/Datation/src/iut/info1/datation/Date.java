@@ -87,6 +87,11 @@ public class Date implements Comparable<Date>{
 		Date other = (Date) obj;
 		return dateHache == other.dateHache;
 	}
+	
+	@Override
+    public int compareTo(Date o) {
+        return this.dateHache - o.dateHache;
+    }
 
 /** Vérifier la validité d'une date grégorienne
     * @param jour  jour de la date
@@ -111,8 +116,9 @@ public class Date implements Comparable<Date>{
                && (annee % 100 != 0 || annee % 400 == 0);
    }
 
-	@Override
-	public int compareTo(Date o) {
-		return this.dateHache - o.dateHache;
-	}
+   public boolean isBissextile() {
+       return      isBissextile(this.getAaaa());
+   }
+
+	
 }
