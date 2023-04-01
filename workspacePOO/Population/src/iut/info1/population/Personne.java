@@ -20,12 +20,20 @@ import iut.info1.datation.Date;
  */
 public class Personne {
     
-    private static final String REGEX_PRENOM_INVALIDE 
-    = "[^0-9*-/+&~\\\"#\\\\{(|`_^@)\\[\\]=},?.;:!§ù%¨$£¤²]*";
 
     /** L'âge maximal d'un individu. 
      * Au delà la date de naissance serais jugé invalide. */
     final static int AGE_MAX = 130;
+
+    /**
+     * Selon la 
+     * <a href="http://circulaire.legifrance.gouv.fr/pdf/2014/07/cir_38565.pdf">
+     *     Circulaire du 23 juillet 2014 relative à l’état civil
+     * </a>,  
+     * cette regex permet de vérifier la validiter d'un prénom (ou d'un nom). 
+     */
+    private static final String REGEX_PRENOM_VALIDE 
+    = "^[a-zA-ZàâäéèêëïîôöùûüÿçÀÄÉÈÊËÏÎÔÖÙÛÜŸÇæÆœŒ. \\-]*$";
 
     /** 
      * Regex pour vérifier la validiter du NIR. Construit grâce à la page
@@ -101,13 +109,13 @@ public class Personne {
      */
     public int ageEn(int anneeVise) {
         int age;
-        
-        return 0;
+        age = 0;
+        return age;
     }
 
     private boolean estValide(String nir, String nom, 
                               String prenom, Date dateNaiss) {
-        return    nirEstValide(nir) && nomEstValide(nom) 
+        return    nirEstValide(nir,dateNaiss) && nomEstValide(nom) 
                && prenomEstValide(prenom) && dateNaissEstValide(dateNaiss);
     }
 
@@ -121,14 +129,38 @@ public class Personne {
     private boolean prenomEstValide(String prenom) {
         // TODO écrire le corps de prenomEstValide
         return    !prenom.isBlank() 
-               && prenom.matches(REGEX_PRENOM_INVALIDE);
+               && prenom.matches(REGEX_PRENOM_VALIDE);
     }
 
     private boolean nomEstValide(String nom) {
         return prenomEstValide(nom);
     }
 
-    private boolean nirEstValide(String nir) {
-        return nir.matches(REGEX_NIR_VALIDE);
+    /**
+     * Vérifie si le NIR est valide.
+     * Un NIR est valide s'il match avec la regex définit plus haut.
+     * De plus l'année de naissance et le mois doivent être correcte
+     */
+    private boolean nirEstValide(String nir, Date dateNaiss) {
+        if (!nir.matches(REGEX_NIR_VALIDE)) {
+            throw new IllegalArgumentException("Erreur : NIR invalide.");
+        }
+        if (!nir.substring(1, 3).equals((dateNaiss.getAaaa()+"").substring(2, 4))) {
+            throw new IllegalArgumentException("Erreur : L'année de naissance "
+                    + "ne correspont pas à ce qui a été indiqué dans le NIR.");            
+        }
+        if (!(Integer.parseInt(nir.substring(3, 5)) == dateNaiss.getMm())) {
+            throw new IllegalArgumentException(String.format("Erreur : Le mois "
+                    + "de naissance ne correspont pas à ce qui a été indiqué "
+                    + "dans le NIR. %d != %d",
+                    Integer.parseInt(nir.substring(3, 5)),dateNaiss.getMm()));                        
+        }
+        return true;
     }
 }
+
+
+
+
+
+
