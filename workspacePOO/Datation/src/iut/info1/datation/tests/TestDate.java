@@ -141,9 +141,9 @@ class TestDate {
 	
 	@Test
 	void testCompareTo () {
-		assertTrue(-1 >= correctes.get(0).compareTo(correctes.get(1)));
+		assertTrue(0 >  correctes.get(0).compareTo(correctes.get(1)));
 		assertTrue(0 == correctes.get(0).compareTo(correctes.get(0)));
-		assertTrue(1 <= correctes.get(1).compareTo(correctes.get(0)));
+		assertTrue(0 <  correctes.get(1).compareTo(correctes.get(0)));
 		for (int i = 1; i < correctes.size(); i++) {
 		    assertTrue(-1 >= correctes.get(0).compareTo(correctes.get(i)));            
         }
