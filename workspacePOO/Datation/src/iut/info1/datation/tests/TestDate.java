@@ -34,6 +34,7 @@ class TestDate {
 		correctes.add(new Date(29,2 ,2020));
 		correctes.add(new Date(31,3 ,2020));
 		correctes.add(new Date(31,8 ,2020));
+		correctes.add(new Date(31,8 ,2100));
 	}
 
 	@Test
@@ -76,6 +77,7 @@ class TestDate {
 		correctes.add(new Date(29,2 ,2020));
 		correctes.add(new Date(31,3 ,2020));
 		correctes.add(new Date(31,8 ,2020));
+		correctes.add(new Date(31,8 ,2100));
 	}
 	
 	@Test
@@ -136,7 +138,10 @@ class TestDate {
 		    test1 = date;
 		    test2 = new Date(date.getJj(),date.getMm(),date.getAaaa());
 		    assertEquals(test1,test2);
-        }
+		    assertEquals(date,date);
+		    assertNotEquals(date,null);
+		    assertNotEquals(date,"01/02/2023");
+		}
 	}
 	
 	@Test
@@ -166,6 +171,15 @@ class TestDate {
 	    assertFalse(correctes.get(3).isBissextile());
 	    assertFalse(correctes.get(4).isBissextile());
 	    assertFalse(correctes.get(5).isBissextile());
+	    assertFalse(correctes.get(9).isBissextile());
+	}
+	
+	@Test
+	void testHashCode () {
+		for (Date date : correctes) {
+			assertEquals(date.hashCode(), 
+				new Date(date.getJj(),date.getMm(),date.getAaaa()).hashCode());			
+		}
 	}
 	
 

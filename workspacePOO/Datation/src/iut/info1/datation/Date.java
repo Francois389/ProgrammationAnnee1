@@ -45,7 +45,7 @@ public class Date implements Comparable<Date>{
         } else {
             dateHache = jj + (mm*100) + (aaaa*10_000);
         }
-    }
+    } 
 
     /** @return le numéro de jour entre 1 et 31*/
     public int getJj() {
