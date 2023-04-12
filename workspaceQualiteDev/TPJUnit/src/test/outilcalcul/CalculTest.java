@@ -133,9 +133,12 @@ class CalculTest {
     @DisplayName("toString")
     void testToString() {
     	//TODO Ecrire le test de toString
-    	String[] a;
+    	String s;
+    	Calcul c;
     	for (int i = 0; i < VAL_DROITE.length; i++) {
-			
+			c = new Calcul(VAL_GAUCHE[i],VAL_DROITE[i]);
+			s = "G = " + VAL_GAUCHE[i] + " | D = " + VAL_DROITE[i];
+			assertEquals(s, c.toString());
 		}
     }
 
