@@ -109,8 +109,8 @@ public class Personne {
      */
     public int ageEn(int anneeVise) {
         int age;
-        age = 0;
-        return age;
+        age = this.getDateNaiss().getAaaa();
+        return anneeVise - age;
     }
 
     private boolean estValide(String nir, String nom, 
@@ -145,16 +145,18 @@ public class Personne {
         if (!nir.matches(REGEX_NIR_VALIDE)) {
             throw new IllegalArgumentException("Erreur : NIR invalide.");
         }
-        if (!nir.substring(1, 3).equals((dateNaiss.getAaaa()+"").substring(2, 4))) {
+        String anneeNir = nir.substring(1, 3);
+        if (!anneeNir.equals((dateNaiss.getAaaa()+"").substring(2, 4))) {
             throw new IllegalArgumentException("Erreur : L'année de naissance "
                     + "ne correspont pas à ce qui a été indiqué dans le NIR.");            
         }
-        if (!(Integer.parseInt(nir.substring(3, 5)) == dateNaiss.getMm())) {
+        int moisNir = Integer.parseInt(nir.substring(3, 5));
+        if (!(moisNir == dateNaiss.getMm())) {
             throw new IllegalArgumentException(String.format("Erreur : Le mois "
                     + "de naissance ne correspont pas à ce qui a été indiqué "
-                    + "dans le NIR. %d != %d",
-                    Integer.parseInt(nir.substring(3, 5)),dateNaiss.getMm()));                        
+                    + "dans le NIR. %d != %d", moisNir,dateNaiss.getMm()));                        
         }
+        //TODO Vérifier la clé du nir
         return true;
     }
 }
