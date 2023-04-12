@@ -93,7 +93,8 @@ class TestPersonne {
     @Test
     void testGetNom() {
         String[] nomPersonneValide
-        = {        }
+        = {        };
+        //TODO finir
     }
 
     /**
