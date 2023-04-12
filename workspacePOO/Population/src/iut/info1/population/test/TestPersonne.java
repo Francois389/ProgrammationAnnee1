@@ -23,14 +23,14 @@ import iut.info1.population.Personne;
  */
 class TestPersonne {
 
-    private List<Personne> correctes;
+    private List<Personne> personneValide;
     
     @BeforeEach
     void regenererJeuTest () {
-        correctes = new ArrayList<>(10);
-        correctes.add(new Personne("100010100100101","François","de Saint Palais",new Date(1,1,2000)));
-        correctes.add(new Personne("145039512732156","Jean Pierre","Martin",new Date(1,3,1945)));
-        correctes.add(new Personne("145039512732156","Jean-Pierre","Martin",new Date(1,3,1945)));
+        personneValide = new ArrayList<>(10);
+        personneValide.add(new Personne("100010100100101","François","de Saint Palais",new Date(1,1,2000)));
+        personneValide.add(new Personne("145039512732156","Jean Pierre","Martin",new Date(1,3,1945)));
+        personneValide.add(new Personne("145039512732156","Jean-Pierre","Martin",new Date(1,3,1945)));
     }
     
     /**
@@ -80,9 +80,11 @@ class TestPersonne {
      */
     @Test
     void testGetNIR() {
-        assertEquals("100010100100101", new Personne("100010100100101","François","de Saint Palais",new Date(1,1,2000)));
-        assertEquals("145039512732156", new Personne("145039512732156","Jean Pierre","Martin",new Date(1,3,1945)));
-        
+        String[] nirPersonneValide
+        = {"100010100100101","145039512732156","145039512732156"};
+        for (int i = 0; i < personneValide.size(); i++) {
+            assertEquals(personneValide.get(i).getNIR(), nirPersonneValide[i]);
+        }        
     }
 
     /**
@@ -90,7 +92,9 @@ class TestPersonne {
      */
     @Test
     void testGetNom() {
-        fail("Not yet implemented");
+        String[] nomPersonneValide
+        = {        };
+        //TODO finir
     }
 
     /**
@@ -106,7 +110,11 @@ class TestPersonne {
      */
     @Test
     void testGetDateNaiss() {
-        fail("Not yet implemented");
+        Date[] datePersonneValide 
+        = {new Date(1,1,2000),new Date(1,3,1945),new Date(1,3,1945)};
+        for (int i = 0; i < personneValide.size(); i++) {
+            assertEquals(personneValide.get(i).getDateNaiss(), datePersonneValide[i]);
+        }
     }
 
     /**
@@ -122,7 +130,10 @@ class TestPersonne {
      */
     @Test
     void testAgeEn() {
-        fail("Not yet implemented");
+        int[] agePersonneValide = {23, 78,78};
+        for (int i = 0; i < personneValide.size(); i++) {
+            assertEquals(agePersonneValide[i],personneValide.get(i).ageEn(2023));
+        }
     }
 
     /**
