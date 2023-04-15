@@ -4,67 +4,82 @@
  */
 package application;
 
-import java.awt.Checkbox;
-import java.awt.CheckboxGroup;
-import java.awt.Color;
-
 import javafx.application.Application; 
-import javafx.event.ActionEvent; 
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
+import javafx.geometry.Insets; 
 import javafx.geometry.Pos; 
-import javafx.stage.Stage;
-import javafx.scene.Node;
 import javafx.scene.Scene; 
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.layout.BorderPane; 
-import javafx.scene.layout.HBox; 
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.Button; 
+import javafx.scene.layout.GridPane; 
+import javafx.scene.text.Text; 
+import javafx.scene.control.TextField; 
+import javafx.stage.Stage; 
 
 /** TODO comment class responsibility (SRP)
  * @author francois
  *
  */
-public class JavaFXCheckboxExample extends Application {
+public class JavaFXCheckboxExample extends Application { 
+   @Override 
+   public void start(Stage stage) {      
+      //creating label email 
+      Text text1 = new Text("Email");       
+      
+      //creating label password 
+      Text text2 = new Text("Password"); 
+	  
+      //Creating Text Filed for email        
+      TextField textField1 = new TextField();       
+      
+      //Creating Text Filed for password        
+      TextField textField2 = new TextField();  
+       
+      //Creating Buttons 
+      Button button1 = new Button("Submit"); 
+      Button button2 = new Button("Clear");  
+      
+      //Creating a Grid Pane 
+      GridPane gridPane = new GridPane();   
+      gridPane.setGridLinesVisible(true);
+      
+      //Setting size for the pane  
+      gridPane.setMinSize(400, 200); 
+       
+      //Setting the padding  
+      gridPane.setPadding(new Insets(10, 10, 10, 10)); 
+      
+      //Setting the vertical and horizontal gaps between the columns 
+      gridPane.setVgap(5); 
+      gridPane.setHgap(5);       
+      
+      //Setting the Grid alignment 
+//      gridPane.setAlignment(Pos.CENTER); 
+       
+      //Arranging all the nodes in the grid 
+      gridPane.add(text1, 0, 0); 
+      gridPane.add(textField1, 1, 0); 
+      gridPane.add(text2, 0, 1);       
+      gridPane.add(textField2, 1, 1); 
+      gridPane.add(button1, 0, 2); 
+      gridPane.add(button2, 1, 2);  
+      
+      //Creating a scene object 
+      Scene scene = new Scene(gridPane);  
+      
+      //Setting title to the Stage 
+      stage.setTitle("Grid Pane Example"); 
+         
+      //Adding scene to the stage 
+      stage.setScene(scene); 
+         
+      //Displaying the contents of the stage 
+      stage.show(); 
+   } 
 
-    /* non javadoc - @see javafx.application.Application#start(javafx.stage.Stage) */
-    @Override
-    public void start(Stage s) throws Exception {
-      //create label
-        Label lb = new Label("Please tick your favorite type of dish ");
-        //4 checkboxes
-        CheckBox cb1 = new CheckBox("North Indian Veg Dish");
-        CheckBox cb2 = new CheckBox("North Indian Non Veg dish");
-        CheckBox cb3 = new CheckBox("South Indian Veg Dish");
-        CheckBox cb4 = new CheckBox("South Indian Non veg Dish");
-        //horizontal box
-        HBox r = new HBox();
-        //add the label, checkboxes
-        r.getChildren().addAll(lb, cb1, cb2, cb3, cb4);
-        r.setSpacing(5);
-        //create scene
-        Scene sc=new Scene(r, 700, 100);
-        //set the scene
-        s.setScene(sc);
-        //set the title
-        s.setTitle("CheckBox Sample");
-        //display the result
-        s.show();
-    }
-    
-    /** 
-     * @param args
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-}
+   /**
+    * TODO comment method role
+    * @param args
+    */
+   public static void main(String args[]){ 
+      launch(args); 
+   } 
+} 
