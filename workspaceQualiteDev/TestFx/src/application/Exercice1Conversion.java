@@ -1,27 +1,24 @@
 /*
- * Affiche la fenêtre par défaut de JavaFX
- * ExempleCours1.java 01/22
+ * Affiche une application pour la conversion d'heure et de minutes en minutes
+ * Exercice1Conversion.java 01/22
  */
 package application; 
  
-import java.awt.Color;
-
-import javafx.application.Application; 
-import javafx.event.ActionEvent; 
+import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos; 
-import javafx.stage.Stage; 
-import javafx.scene.Scene; 
-import javafx.scene.control.Button; 
-import javafx.scene.control.TextField; 
-import javafx.scene.control.Label; 
-import javafx.scene.layout.BorderPane; 
-import javafx.scene.layout.HBox; 
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text; 
+import javafx.scene.text.Text;
+import javafx.stage.Stage; 
 /**
  * Cette classe est la classe principale d'une application JavaFX.
  * On dit aussi le point d'entrée de l'application, car c'est la première classe qui 
@@ -31,8 +28,8 @@ import javafx.scene.text.Text;
  * @author François de Saint Palais
  *
  */
-public class Exercice1 extends Application { 
-     @Override
+public class Exercice1Conversion extends Application { 
+    @Override
     public void start(Stage primaryStage) { 
         
         // on définit le titre, la hauteur et la largeur de la fenêtre
@@ -95,9 +92,9 @@ public class Exercice1 extends Application {
             @Override
             public void handle(ActionEvent event) { 
             
-            saisieHeure.setText("");
-            saisieMinute.setText("");
-            resultatMinute.setText("");
+                saisieHeure.setText("");
+                saisieMinute.setText("");
+                resultatMinute.setText("");
             } 
         });
         
