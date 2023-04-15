@@ -100,6 +100,7 @@ public class TestManuelTarifSpectacle {
      * @param nbTestTotal       nombre total de tests effectués
      * @param nbTestOk          nombre de tests réussis
      */
+    @SuppressWarnings("unused")
     private static void afficherResultatTest(int nbTestTotal, int nbTestOk) {
         System.out.println("\n" + nbTestOk + " test(s) ont réussi sur un total de "
                 + nbTestTotal + " tests réalisés.\n   ==>  "

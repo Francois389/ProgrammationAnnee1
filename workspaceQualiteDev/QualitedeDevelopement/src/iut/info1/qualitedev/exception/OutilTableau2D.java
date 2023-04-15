@@ -31,6 +31,7 @@ public class OutilTableau2D {
             "Erreur. La colonne numéro %d n'existe pas.";
     
     /** Message d'erreur si une colonne n'existe pas pour une ligne précise */
+    @SuppressWarnings("unused")
     private static final String ERREUR_COL_INVALIDE_SUR_LIG = 
             "Erreur. La colonne numéro %d n'existe pas pour la ligne %d.";
     

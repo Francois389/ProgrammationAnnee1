@@ -19,6 +19,7 @@ public class TestOutilDureeHM {
     
     
     /** Objet Scanner pour les saisies au clavier */
+    @SuppressWarnings("unused")
     private static  Scanner  entree = new Scanner(System.in);
     
     
@@ -222,7 +223,6 @@ public class TestOutilDureeHM {
                         OutilDureeHM.dureeToString(result));
 
             } catch (IllegalArgumentException e) {
-                // TODO: handle exception
                 System.out.println(e.getMessage());
             }
         }
@@ -240,7 +240,6 @@ public class TestOutilDureeHM {
                         OutilDureeHM.dureeToString(result));
 
             } catch (IllegalArgumentException e) {
-                // TODO: handle exception
                 System.out.println(e.getMessage());
             }
         }
@@ -253,7 +252,6 @@ public class TestOutilDureeHM {
             try {
                 result = OutilDureeHM.somme2Durees(REFERENCE, ints);
             } catch (IllegalArgumentException e) {
-                // TODO: handle exception
                 calculImpossible ++;
             }
         } 
@@ -318,7 +316,6 @@ public class TestOutilDureeHM {
         System.out.print("Comparaison de la durée ");
         OutilDureeHM.afficher(A_COMPARER);
         System.out.println(" à différentes durées valides ou invalides: \n");
-        // TODO
         comparaisonImpossible = 0;
         for (int[] duree : DUREE) {
             try {

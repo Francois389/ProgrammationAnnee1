@@ -17,13 +17,14 @@ import iut.info1.qualitedev.exception.OutilTableau2D;
 public class TestOutilTableau2D {
     
     /** pour les saisies au clavier */
+    @SuppressWarnings("unused")
     private static Scanner entree = new Scanner(System.in);
     
     
     /** Lorsqu'un test est répété, il sera répété 3 fois */
     private static final int NB_TEST = 3;
 
-    /** Matrice carrrée qui sert de jeu de test */
+    /** Matrice carrée qui sert de jeu de test */
     private static final int[][] MATRICE_CARREE = { {4, 9, 17, 26, 13},
                                                     {-3, 2, 8, -6, 30},
                                                     {12, 9, 1, 3, 11},
@@ -63,7 +64,6 @@ public class TestOutilTableau2D {
             System.out.print("Somme de la ligne " + numLigne 
                              + " = " + OutilTableau2D.sommeLigne(matrice, numLigne));
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Calcul  impossible.");
             System.out.println(e.getMessage());
         }
@@ -118,7 +118,6 @@ public class TestOutilTableau2D {
     public static void testAfficher() {
         System.out.println("TEST DE LA METHODE afficher :\n"
                            + "----------------------------");
-        // TODO : gérer l'erreur
         // on affiche les 4 matrices de test
         try {
             System.out.println("\n  1)  Résultat pour la matrice carrée : ");
@@ -130,7 +129,6 @@ public class TestOutilTableau2D {
             System.out.println("\n  4)  Résultat pour la matrice nulle : ");
             OutilTableau2D.afficher(MATRICE_NULLE);        
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println(e.getMessage());
         }
     }
@@ -147,7 +145,6 @@ public class TestOutilTableau2D {
     public static void testMatriceCarree() {
         System.out.println("TEST DE LA METHODE matriceCarree :\n"
                            + "-------------------------------");
-        // TODO : gérer l'erreur      
         // on affiche le résultat pour les 4 matrices de test
         try {
             System.out.print("\n  1)  Résultat pour la matrice carrée : ");
@@ -167,7 +164,6 @@ public class TestOutilTableau2D {
             System.out.println(OutilTableau2D.matriceCarree(MATRICE_NULLE) 
                     ? "carrée" : "pas carrée");
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Imposible de tester le matrice.");
             System.out.println(e.getMessage());
         }
@@ -202,7 +198,6 @@ public class TestOutilTableau2D {
             System.out.println("\n  1)  Résultat pour la matrice carrée : ");
             afficherSommePremiereDiag(MATRICE_CARREE);
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Calcul impossible");
             System.out.println(e.getMessage());
         }
@@ -211,7 +206,6 @@ public class TestOutilTableau2D {
             System.out.println("\n  2)  Résultat pour la matrice rectangulaire : ");
             afficherSommePremiereDiag(MATRICE_RECTANGLE);
         } catch (Exception e) {
-            // TODO: handle exception
                         System.out.println("Calcul impossible");
             System.out.println(e.getMessage());
         }
@@ -220,7 +214,6 @@ public class TestOutilTableau2D {
             System.out.println("\n  3)  Résultat pour la matrice irregulière : ");
             afficherSommePremiereDiag(MATRICE_IRREGUL);            
         } catch (Exception e) {
-            // TODO: handle exception
                         System.out.println("Calcul impossible");
             System.out.println(e.getMessage());
         }
@@ -229,7 +222,6 @@ public class TestOutilTableau2D {
             System.out.println("\n  4)  Résultat pour la matrice nulle : ");
             afficherSommePremiereDiag(MATRICE_NULLE);      
         } catch (Exception e) {
-            // TODO: handle exception
                         System.out.println("Calcul impossible");
             System.out.println(e.getMessage());
         }
@@ -276,7 +268,6 @@ public class TestOutilTableau2D {
                 System.out.println("\n  1)  Résultat pour la matrice carrée : ");
                 afficherSommeColonne(MATRICE_CARREE, colonneATester);
             } catch (Exception e) {
-                // TODO: handle exception
                 System.out.println("Calcul impossible.");
                 System.out.println(e.getMessage());
             }
@@ -285,7 +276,6 @@ public class TestOutilTableau2D {
                 System.out.println("\n  2)  Résultat pour la matrice rectangulaire : ");
                 afficherSommeColonne(MATRICE_RECTANGLE, colonneATester);
             } catch (Exception e) {
-                // TODO: handle exception
                 System.out.println("Calcul impossible.");
                 System.out.println(e.getMessage());
             }
@@ -294,7 +284,6 @@ public class TestOutilTableau2D {
                  System.out.println("\n  3)  Résultat pour la matrice irregulière : ");
                  afficherSommeColonne(MATRICE_IRREGUL, colonneATester);
              } catch (Exception e) {
-                // TODO: handle exception
                 System.out.println("Calcul impossible.");
                 System.out.println(e.getMessage());
              }
@@ -303,7 +292,6 @@ public class TestOutilTableau2D {
                  System.out.println("\n  4)  Résultat pour la matrice nulle : ");
                  afficherSommeColonne(MATRICE_NULLE, colonneATester);
              } catch (Exception e) {
-                // TODO: handle exception
                 System.out.println("Calcul impossible.");
                 System.out.println(e.getMessage());
              }
@@ -326,7 +314,6 @@ public class TestOutilTableau2D {
             System.out.printf("\n  1)  %d est présent dans la matrice carrée : ",nbChercher);
             System.out.println(OutilTableau2D.estPresent(MATRICE_CARREE,nbChercher));
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
         }
@@ -335,7 +322,6 @@ public class TestOutilTableau2D {
             System.out.printf("\n  2)  %d est présent dans la matrice rectangulére : ",nbChercher);
             System.out.println(OutilTableau2D.estPresent(MATRICE_RECTANGLE,nbChercher));
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
         }
@@ -344,7 +330,6 @@ public class TestOutilTableau2D {
              System.out.printf("\n  3)  %d est présent dans la matrice ieréguliére : ",nbChercher);
              System.out.println(OutilTableau2D.estPresent(MATRICE_IRREGUL,nbChercher));
          } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
          }
@@ -353,7 +338,6 @@ public class TestOutilTableau2D {
              System.out.printf("\n  4)  %d est présent dans la matrice nulle : ",nbChercher);
              System.out.println(OutilTableau2D.estPresent(MATRICE_NULLE,nbChercher));
          } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
          }
@@ -370,7 +354,6 @@ public class TestOutilTableau2D {
             System.out.print("\n  1)  Le valeur maximal dans la matrice carrée est : ");
             System.out.println(OutilTableau2D.valeurMaximal(MATRICE_CARREE));
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
         }
@@ -379,7 +362,6 @@ public class TestOutilTableau2D {
             System.out.print("\n  2)  Le valeur maximal dans la matrice rectangle est : ");
             System.out.println(OutilTableau2D.valeurMaximal(MATRICE_RECTANGLE));
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
         }
@@ -388,7 +370,6 @@ public class TestOutilTableau2D {
              System.out.print("\n  3)  Le valeur maximal dans la matrice irréguliére est : ");
              System.out.println(OutilTableau2D.valeurMaximal(MATRICE_IRREGUL));
          } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
          }
@@ -397,7 +378,6 @@ public class TestOutilTableau2D {
              System.out.print("\n  4)  Le valeur maximal dans la matrice nulle est : ");
              System.out.println(OutilTableau2D.valeurMaximal(MATRICE_NULLE));
          } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
          }
@@ -414,7 +394,6 @@ public class TestOutilTableau2D {
             System.out.print("\n  1)  L'indice de la ligne dont la somme est maximal dans la matrice carrée est : ");
             System.out.println(OutilTableau2D.indexSommeLigneMaximum(MATRICE_CARREE));
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
         }
@@ -423,7 +402,6 @@ public class TestOutilTableau2D {
             System.out.print("\n  2)  L'indice de la ligne dont la somme est maximal dans la matrice rectangle est : ");
             System.out.println(OutilTableau2D.indexSommeLigneMaximum(MATRICE_RECTANGLE));
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
         }
@@ -432,7 +410,6 @@ public class TestOutilTableau2D {
              System.out.print("\n  3)  L'indice de la ligne dont la somme est maximal dans la matrice irréguliére est : ");
              System.out.println(OutilTableau2D.indexSommeLigneMaximum(MATRICE_IRREGUL));
          } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
          }
@@ -441,7 +418,6 @@ public class TestOutilTableau2D {
              System.out.print("\n  4)  L'indice de la ligne dont la somme est maximal dans la matrice nulle est : ");
              System.out.println(OutilTableau2D.indexSommeLigneMaximum(MATRICE_NULLE));
          } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
          }
@@ -459,7 +435,6 @@ public class TestOutilTableau2D {
             System.out.print("\n  1)  La somme de l'anti-diagonale la matrice carrée est : ");
             System.out.println(OutilTableau2D.sommeAntidiagonale(MATRICE_CARREE));
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
         }
@@ -468,7 +443,6 @@ public class TestOutilTableau2D {
             System.out.print("\n  2)  La somme de l'anti-diagonale de la matrice rectangle est : ");
             System.out.println(OutilTableau2D.sommeAntidiagonale(MATRICE_RECTANGLE));
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
         }
@@ -477,7 +451,6 @@ public class TestOutilTableau2D {
              System.out.print("\n  3)  La somme de l'anti-diagonale de la matrice irréguliére est : ");
              System.out.println(OutilTableau2D.sommeAntidiagonale(MATRICE_IRREGUL));
          } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
          }
@@ -486,7 +459,6 @@ public class TestOutilTableau2D {
              System.out.print("\n  4) La somme de l'anti-diagonale de la matrice nulle est : ");
              System.out.println(OutilTableau2D.sommeAntidiagonale(MATRICE_NULLE));
          } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Recherche impossible.");
             System.out.println(e.getMessage());
          }

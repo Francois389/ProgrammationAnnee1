@@ -81,7 +81,6 @@ public class OutilHoraireTest {
     
     /* ------------  Jeux de test méthodes de conversion ------------------ */
     
-    // TODO
    
   
     
@@ -93,6 +92,7 @@ public class OutilHoraireTest {
     /**
      * Demande à l'utilisateur d'appuyer sur entrée pour continuer
      */
+    @SuppressWarnings("unused")
     private static void continuer() {
         System.out.println("\n\n\nAppuyer sur entrée pour continuer les tests.") ;
         entree.nextLine();
@@ -191,14 +191,12 @@ public class OutilHoraireTest {
         afficherResultatTest(testTotal, testReussi);
     }
     
-    // TODO 
     
     /* ======================================================================== */
     /*                        Test des méthodes  de conversion                  */
     /* ======================================================================== */
     
     
-    // TODO 
     
     
 
@@ -207,13 +205,11 @@ public class OutilHoraireTest {
     /* ======================================================================== */
     
    
-    // TODO 
     
     /* ======================================================================== */
     /*                             Test des méthodes de saisie                  */
     /* ======================================================================== */
     
-    // TODO 
     
     /**
      * Programme principal qui lance les méthodes de test
@@ -224,7 +220,6 @@ public class OutilHoraireTest {
                            + "     TESTS DE LA CLASSE  OUTIL HORAIRE \n"
                            + "-----------------------------------------------\n");
         
-        // TODO 
 //        continuer();
         testEstChiffre();
         testEstHoraireValide();
