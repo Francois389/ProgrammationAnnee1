@@ -98,7 +98,8 @@ public class Exercice1Conversion extends Application {
             } 
         });
         
-        boutonConvertir.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>() {
+        boutonConvertir.setOnAction((EventHandler<ActionEvent>)
+            new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 int heures;

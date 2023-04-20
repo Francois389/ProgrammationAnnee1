@@ -101,6 +101,7 @@ public class Exercice2Restaurant extends Application{
         Button btnEffacer = new Button("Effacer");
         Button btnCalculer = new Button("Calculer");
         
+        
         btnEffacer.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -139,6 +140,7 @@ public class Exercice2Restaurant extends Application{
         racineChoixBoisson.getChildren().addAll(choixBoisson,apero,cafe,the);
         racineResultat.getChildren().addAll(resultat, champsResultat);
         racineBouton.getChildren().addAll(btnEffacer, btnCalculer);
+        
         racine.getChildren().addAll(titre, racineListe,racineBoison,
                                     racineChoixBoisson,racineResultat,
                                     racineBouton);
