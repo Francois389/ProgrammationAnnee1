@@ -37,7 +37,7 @@ public class Exercice1Conversion extends Application {
         primaryStage.setHeight(300); // l'unité est le pixel
         primaryStage.setWidth(500); 
         
-        //Création du Layour racine qui contiendras toute l'interface
+        //Création du Layout racine qui contiendras toute l'interface
         VBox racine = new VBox(20); //20 pixel entre les éléments
         racine.setAlignment(Pos.CENTER); //Les éléments serons centré
         
@@ -110,25 +110,8 @@ public class Exercice1Conversion extends Application {
                 minutesSaisie = saisieMinute.getText();
                 heuresSaisie = saisieHeure.getText();                    
                 
-                if (minutesSaisie.isEmpty()) {
-                    minutes = 0;
-                } else {                    
-                    try {
-                        minutes = Integer.parseInt(minutesSaisie);
-                    } catch (NumberFormatException e) {
-                        minutes = 0;
-                    }      
-                }
-                
-                if (heuresSaisie.isEmpty() ) {                    
-                    heures = 0;
-                } else {
-                    try {
-                        heures = Integer.parseInt(heuresSaisie);
-                    } catch (NumberFormatException e) {
-                        heures = 0;
-                    }      
-                }
+                heures = heuresSaisie.matches("^[1-9]*$") ? Integer.parseInt(heuresSaisie) : 0;
+                minutes = minutesSaisie.matches("^[1-9]*$") ? Integer.parseInt(minutesSaisie) : 0;
                 
                 resultatMinute.setText(conversionHHMMDuree(heures, minutes) 
                                        + " minutes");
