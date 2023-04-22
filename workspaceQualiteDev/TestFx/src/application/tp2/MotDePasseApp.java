@@ -1,14 +1,16 @@
 /*
  * TP2MotDePasse.java                                    22 avr. 2023
  * IUT de Rodez, info1 2022-2023, aucun copyright ni copyleft
+ * La vue est décrite dans le fichier fxml : SBMDP.fxml
+ * 
  */
 package application.tp2;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
 
 /** TODO comment class responsibility (SRP)
  * @author francois
@@ -24,7 +26,7 @@ public class MotDePasseApp extends Application {
         
         /*
         * on indique au chargeur quelle est la vue fxml qu'il devra charger :
-        * ici VueExemple1.fxml
+        * ici SBMDP.fxml
         */
         chargeurFXML.setLocation(getClass().getResource("SBMDP.fxml")); 
         
