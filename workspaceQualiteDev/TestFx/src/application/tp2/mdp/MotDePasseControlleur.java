@@ -3,12 +3,10 @@
  * IUT de Rodez, info1 2022-2023, aucun copyright ni copyleft
  * Classe contrôleur qui gère la vue SBMDP.fxml
  */
-package application.tp2;
+package application.tp2.mdp;
 
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-
-import application.tp2.MotDePasse;
 
 /**
  * <p> 
@@ -19,7 +17,7 @@ import application.tp2.MotDePasse;
  * <ul>
  *     <li>
  *         générer un mot de passe, en utilisant la classe 
- *         {@link application.tp2.MotDePasse  MotDePasse}
+ *         {@link application.tp2.mdp.MotDePasse  MotDePasse}
  *         Il sera affiché dans le Text resultat.
  *     </li>
  *     <li>

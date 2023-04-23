@@ -2,7 +2,7 @@
  *  Générateur de mots de passe. Dans cette version : un prototype
  * MotDePasse.java                      02/22
  */
-package application.tp2;
+package application.tp2.mdp;
 
 
 /**
@@ -48,7 +48,7 @@ public class MotDePasse {
     
     /**
      * Accesseur sur le mot de passe
-     * @return
+     * @return le mot de passe généré
      */
     public String getMot() {
         return mot;

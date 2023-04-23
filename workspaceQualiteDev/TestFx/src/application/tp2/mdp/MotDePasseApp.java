@@ -4,7 +4,7 @@
  * La vue est décrite dans le fichier fxml : SBMDP.fxml
  * 
  */
-package application.tp2;
+package application.tp2.mdp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +21,10 @@ public class MotDePasseApp extends Application {
     /* non javadoc - @see javafx.application.Application#start(javafx.stage.Stage) */
     @Override
     public void start(Stage primaryStage) throws Exception {
+        
+        primaryStage.setTitle("Compter caractères"); 
+
+        
         // création d'un chargeur de code FXML
         FXMLLoader chargeurFXML = new FXMLLoader(); 
         
@@ -40,9 +44,6 @@ public class MotDePasseApp extends Application {
         Scene scene = new Scene(racine); 
         
         // on définit le titre, la hauteur et la largeur de la fenêtre
-        primaryStage.setTitle("Compter caractères"); 
-        primaryStage.setHeight(300); 
-        primaryStage.setWidth(500); 
         primaryStage.setScene(scene); 
         primaryStage.show(); 
     }
