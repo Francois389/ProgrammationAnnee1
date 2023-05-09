@@ -100,7 +100,6 @@ public class Date implements Comparable<Date>{
     * @return      true si la date est valide, false sinon
     */
    private static boolean isValide(int jour, int mois, int annee) {
-       
        return     AN_MIN <= annee && annee <= AN_MAX 
               &&       1 <= mois  &&  mois <=   12   
               &&       1 <= jour 

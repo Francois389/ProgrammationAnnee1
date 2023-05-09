@@ -157,7 +157,7 @@ public class ControlleurDevineNb {
         nbMin = 100;
         tentativeRestante = 10;
         nombreAleatoire = nbMin + (int)(Math.random() * ((nbMax - nbMin) + 1));
-        System.out.println("Nombre aléatoire : " + nombreAleatoire);
+//        System.out.println("Nombre aléatoire : " + nombreAleatoire);
         textPresentation.setText(String.format("Le nombre est compris entre %d "
                                                + "et %d", nbMin, nbMax));
         textTentativeRestante.setText(tentativeRestante + "");

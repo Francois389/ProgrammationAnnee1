@@ -6,6 +6,7 @@
 package application.tp2.mdp;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
 /**
@@ -32,7 +33,7 @@ public class MotDePasseControlleur {
 
     /** Text où afficher le résultat */
     @FXML 
-    private Text resultat;
+    private Label resultat;
 
     
     @FXML
