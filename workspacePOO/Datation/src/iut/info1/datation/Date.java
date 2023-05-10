@@ -5,7 +5,6 @@
 
 package iut.info1.datation;
 
-import java.util.Objects;
 
 /**
  * Date grégorienne de la forme jj/mm/aaaa
@@ -73,7 +72,7 @@ public class Date implements Comparable<Date>{
 
     @Override
 	public int hashCode() {
-		return Objects.hash(dateHache);    
+		return dateHache;    
 	}
     
 	@Override
@@ -85,7 +84,7 @@ public class Date implements Comparable<Date>{
 		if (getClass() != obj.getClass())
 			return false;
 		Date other = (Date) obj;
-		return dateHache == other.dateHache;
+		return hashCode() == other.hashCode();
 	}
 	
 	@Override

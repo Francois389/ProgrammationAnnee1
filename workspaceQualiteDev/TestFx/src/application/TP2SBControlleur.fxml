@@ -1,0 +1,66 @@
+/**
+ * 
+ */
+package application;
+
+
+import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+/**
+ * @author francois.desaintpala
+ *
+ */
+public class TP2SBControlleur {
+
+	/* 
+	 * Explications détaillées : 
+	 * 
+	 * La vue est dotée d'une zone de saisie, nommée ici zoneSaisie, et d'une étiquette 
+	 * nommée ici etiquetteResultat. 
+	 * 
+	 * Elle comporte également 2 boutons "Calculer" et "Effacer". La méthode gererClicCalculer 
+	 * gère le clic sur le bouton "Calculer" et la méthode gererClicEffacer gère le clic sur 
+	 * le bouton "Effacer" 
+	 * 
+	 * @FXML est une annotation du langage Java (en lien avec JavaFX). 
+	 * Elle sert à indiquer que l'élément (ici un contrôle ou une méthode) est lié à un 
+	 * élément déclaré dans le fichier fxml décrivant la vue que ce contrôleur gère 
+	 */
+	 
+	 @FXML 
+	 private Text resultat;
+	 
+	 @FXML 
+	 private Button btnEffacer;
+	 
+	 @FXML
+	 private Button btnGenerer;
+	 
+	 
+	 /** 
+	 * Méthode invoquée lors du clic sur le bouton Calculer 
+	 * La méthode récupère la chaîne saisie par l'utilisateur. Elle affiche ensuite 
+	 * dans l'étiquette le nombre de caractères de cette chaîne 
+	 */
+	 @FXML 
+	 private void clicGenerer() {
+		 
+	 }
+	 
+	 
+	 /** 
+	 * Méthode invoquée lors du clic sur le bouton Effacer 
+	 * La méthode rétablit l'interface dans son état d'origine 
+	 */
+	 @FXML 
+	 private void clicEffacer() {
+		 resultat.setText("?");
+	 }
+
+}

@@ -4,6 +4,9 @@
  */
 package iut.info1.population;
 
+import java.util.Objects;
+
+
 import iut.info1.datation.Date;
 
 /**
@@ -56,25 +59,25 @@ public class Personne {
     private String prenom;
     
     /** La date de naissance de la personne */
-    private Date dateNaiss;
+    private Date naissance;
 
     /**
      * Constructeur d'une Personne
      * @param nIR Le numéro NIR (ou INSEE)
-     * @param nom Le nom
+     * @param argNom Le nom
      * @param prenom Le prénom
-     * @param dateNaiss La date de naissance. La date doit être valide.
+     * @param naissance La date de naissance. La date doit être valide.
      */
-    public Personne(String nIR, String nom, String prenom, Date dateNaiss) {
-        super();
-        if (!estValide(nIR, nom, prenom, dateNaiss)) {
+    public Personne(String nIR, String argNom, String prenom, Date dateNaiss) {
+    	super();
+        if (!estValide(nIR, argNom, prenom, dateNaiss)) {
             throw new IllegalArgumentException("Erreur. "
                                                + "Une des entrés est invalide");
         }
         NIR = nIR;
-        this.nom = nom;
+        nom = argNom;
         this.prenom = prenom;
-        this.dateNaiss = dateNaiss;
+        this.naissance = dateNaiss;
     }
     
     /** Retourne la valeur de NIR */
@@ -92,14 +95,14 @@ public class Personne {
         return prenom;
     }
 
-    /** Retourne la valeur de dateNaiss */
+    /** Retourne la valeur de naissance */
     public Date getDateNaiss() {
-        return dateNaiss;
+        return naissance;
     }
 
     @Override
     public String toString() {
-        return nom + " " + prenom + ", né le " + dateNaiss + ". NIR : " + NIR;
+        return nom + " " + prenom + ", né le " + naissance + ". NIR : " + NIR;
     }
     
     /**
@@ -112,6 +115,19 @@ public class Personne {
         age = this.getDateNaiss().getAaaa();
         return anneeVise - age;
     }
+
+    @Override
+	public int hashCode() {
+		return Objects.hash(NIR);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Personne)) {
+			return false;
+		}
+		return hashCode() == obj.hashCode();
+	}
 
     private boolean estValide(String nir, String nom, 
                               String prenom, Date dateNaiss) {
@@ -156,7 +172,7 @@ public class Personne {
                     + "de naissance ne correspont pas à ce qui a été indiqué "
                     + "dans le NIR. %d != %d", moisNir,dateNaiss.getMm()));                        
         }
-        //TODO Vérifier la clé du nir
+        //TODO Vérifier la clé du NIR
         return true;
     }
 }

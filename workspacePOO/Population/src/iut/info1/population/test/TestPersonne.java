@@ -7,7 +7,9 @@ package iut.info1.population.test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -28,9 +30,9 @@ class TestPersonne {
     @BeforeEach
     void regenererJeuTest () {
         personneValide = new ArrayList<>(10);
-        personneValide.add(new Personne("100010100100101","François","de Saint Palais",new Date(1,1,2000)));
-        personneValide.add(new Personne("145039512732156","Jean Pierre","Martin",new Date(1,3,1945)));
-        personneValide.add(new Personne("145039512732156","Jean-Pierre","Martin",new Date(1,3,1945)));
+        personneValide.add(new Personne("100010100100101","de Saint Palais","François",new Date(1,1,2000)));
+        personneValide.add(new Personne("145039512732156","Martin","Jean Pierre",new Date(1,3,1945)));
+        personneValide.add(new Personne("145039512732156","Martin","Jean-Pierre",new Date(1,3,1945)));
     }
     
     /**
@@ -67,12 +69,12 @@ class TestPersonne {
     @Test
     @DisplayName ("TestConstructeur Ok")
     void testPersonneOk() {
-        //TODO Écrire les test du constructeur ok
+        //TODO Écrire les test du constructeur OK
         List<Personne> correctes;
         correctes = new ArrayList<>(10);
-        correctes.add(new Personne("100010100100101","François","de Saint Palais",new Date(1,1,2000)));
-        correctes.add(new Personne("145039512732156","Jean Pierre","Martin",new Date(1,3,1945)));
-        correctes.add(new Personne("145039512732156","Jean-Pierre","Martin",new Date(1,3,1945)));
+        correctes.add(new Personne("100010100100101","de Saint Palais","François",new Date(1,1,2000)));
+        correctes.add(new Personne("145039512732156","Martin","Jean Pierre",new Date(1,3,1945)));
+        correctes.add(new Personne("145039512732156","Martin","Jean-Pierre",new Date(1,3,1945)));
     }
 
     /**
@@ -93,8 +95,12 @@ class TestPersonne {
     @Test
     void testGetNom() {
         String[] nomPersonneValide
-        = {        };
-        //TODO finir
+        = {"de Saint Palais","Martin","Martin"};
+        for (int i = 0; i < nomPersonneValide.length; i++) {
+//        	System.out.println("Nom : " + personneValide.get(i).getNom());
+//        	System.out.println(personneValide.get(i).toString());
+			assertEquals(nomPersonneValide[i], personneValide.get(i).getNom());
+		}
     }
 
     /**
@@ -102,7 +108,11 @@ class TestPersonne {
      */
     @Test
     void testGetPrenom() {
-        fail("Not yet implemented");
+        String[] prenomPersonneValide
+        = {"François","Jean Pierre","Jean-Pierre"};
+        for (int i = 0; i < prenomPersonneValide.length; i++) {
+        	assertEquals(prenomPersonneValide[i], personneValide.get(i).getPrenom());
+        }
     }
 
     /**
@@ -122,7 +132,13 @@ class TestPersonne {
      */
     @Test
     void testToString() {
-        fail("Not yet implemented");
+    	String schemaToString = "%s %s, né le %s. NIR : %s";
+//    	System.out.println("ToString");
+    	for (int i = 0; i < personneValide.size(); i++) {
+    		Personne p = personneValide.get(i);
+			assertEquals(String.format(schemaToString,p.getNom(),p.getPrenom(),p.getDateNaiss(),p.getNIR()), p.toString());
+//			System.out.println(String.format(schemaToString,p.getNom(),p.getPrenom(),p.getDateNaiss(),p.getNIR()));
+		}
     }
 
     /**
@@ -141,7 +157,10 @@ class TestPersonne {
      */
     @Test
     void testHashCode() {
-        fail("Not yet implemented");
+        for (int i = 0; i < personneValide.size(); i++) {
+        	assertEquals(Objects.hash(personneValide.get(i).getNIR()),
+        			personneValide.get(i).hashCode());
+		}
     }
 
     /**
@@ -149,7 +168,11 @@ class TestPersonne {
      */
     @Test
     void testEquals() {
-        fail("Not yet implemented");
+        for (int i = 0; i < personneValide.size(); i++) {
+			assertEquals(personneValide.get(i), personneValide.get(i));
+		}
+        assertNotEquals(personneValide.get(0), personneValide.get(1));
+        assertNotEquals(personneValide.get(1), personneValide.get(2));
     }
 
 }
