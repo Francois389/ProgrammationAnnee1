@@ -12,7 +12,6 @@
          <children>
             <Text fill="#0c7dc4" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe généré :" />
             <Label fx:id="resultat" text="Label" />
-            <Text id="resultat" focusTraversable="true" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="?" />
             <Button fx:id="btnEffacer" mnemonicParsing="false" onAction="#effacerResultat" text="Effacer" />
             <Button fx:id="btnGenerer" mnemonicParsing="false" onAction="#genererMDP" text="Générer" />
          </children>

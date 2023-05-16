@@ -35,6 +35,10 @@ public class MotDePasseControlleur {
     @FXML 
     private Label resultat;
 
+    @FXML
+    void initialize() {
+        resultat.setText("?");
+    }
     
     @FXML
     private void effacerResultat() {
