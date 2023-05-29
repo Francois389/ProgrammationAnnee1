@@ -1,10 +1,7 @@
 .idea
 .metadata
 .settings
-#.project
-<<<<<<< HEAD
+.project
 *.class
 bin/
-=======
-*.class
->>>>>>> 7b7e8fda3ea84b7a2b504f28c646715ce2af936c
+#workspacePOO/Datation/.project
