@@ -4,30 +4,28 @@
  */
 package iut.info1.geographie;
 
-import java.lang.Math;
-
 /**
- * //TODO Commenter la responsabilités de la classe PointGPS
+ * Un point GPS sur le géosphére WGS84
  * @author François de Saint Palais
- *
  */
 public class PointGPS {
 
+    /** Latitude en dégrées décimal */
     private double latitude;
     
+    /** Longitude en dégrées décimal */
     private double longitude;
     
     public PointGPS(double latitude, double longitude) {
         // TODO Auto-generated constructor stub
-        if (-90.0 <= latitude && latitude <= 90.0 
-            && -180.0 <= longitude && longitude <= 180.0 ) {
-            this.latitude = latitude;
-            this.longitude = longitude;
-        } else {
+        if (    latitude < -90.0  ||  90.0 < latitude
+            || longitude < -180.0 || 180.0 < longitude) {
             throw new IllegalArgumentException("Erreur : la latitude doit étre "
                     + "compris entre -90 et 90 et la longitude entre -180 et "
                     + "180");
         }
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
     
     public double getLatDeg () {
@@ -45,6 +43,14 @@ public class PointGPS {
 
     public double getLonRad () {
         return Math.toRadians(longitude);
+    }
+    
+    public double distance(LocalisationGPS autrePoint) {
+        return LocalisationGPS.RAYON_TERRE 
+               * Math.acos(Math.sin(this.getLatRad()) * Math.sin(autrePoint.getLatRad()))
+               + Math.cos(this.getLatRad()) 
+               * Math.cos(autrePoint.getLatRad())
+               * Math.cos(autrePoint.getLonRad() - this.getLonRad());
     }
 
     @Override

@@ -4,41 +4,49 @@
  */
 package iut.info1.geographie;
 
-import iut.info1.geographie.PointGPS;
-import java.lang.Math;
-
 /**
- * //TODO Commenter la responsabilités de la classe LocalisationGPS
- * @author francois
+ * Lieu localisé pars ses coordonnées GPS (latitude ; longitude)
+ * sur le géodésique WGS 84
+ * @author de Saint Palais François
  *
  */
-public class LocalisationGPS {
+public class LocalisationGPS extends PointGPS {
     
     final static double RAYON_TERRE = 6371.0;
     
+    /** Nom identifiant ce lieu (peut être la chaîne vide) */
     private String nomLieu;
     
-    private PointGPS position;
-
+    /**
+     * Définition d'un lieu avec son nom et ses coordonnées
+     * @param nomDuLieu nom identifiant ce lieu (facultatif)
+     * @param latitude latitude en degrès décimaux (de -90 à 90)
+     * @param longitude longitude en degrés décimaux (de -180 à 180)
+     */
     public LocalisationGPS(String nomDuLieu, double latitude, double longitude) {
-        // TODO Auto-generated constructor stub
+        super(latitude,longitude);
         nomLieu = nomDuLieu;
-        position = new PointGPS(latitude, longitude);
     }
 
-    public double distance(LocalisationGPS autrePoint) {
-        return LocalisationGPS.RAYON_TERRE 
-               * Math.acos(  Math.sin(this.position.getLatRad()) 
-                           * Math.sin(autrePoint.position.getLatRad()))
-               +   Math.cos(this.position.getLatRad()) 
-                 * Math.cos(autrePoint.position.getLatRad())
-               * Math.cos(autrePoint.position.getLonRad() 
-                          - this.position.getLonRad());
-    }
+
 
     @Override
     public String toString() {
-        return nomLieu + " " + position ;
+       String chaine = nomLieu + " " +"(";
+        if (getLatDeg() >= 0.0) {
+            chaine += "+" + getLatDeg();
+        } else {
+            chaine += "-" + getLatDeg();
+        }
+        chaine += " ; " ;
+        
+        if (getLonDeg() >= 0.0) {
+            chaine += "+" + getLonDeg();
+        } else {
+            chaine += "-" + getLonDeg();
+        }
+        
+        return chaine + ")";
     }
     
     
