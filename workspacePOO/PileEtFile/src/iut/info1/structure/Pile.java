@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Pile {
     
-    private List<Object> pile;
+    private Object[] pile;
 
     public Pile() {
         //TODO Écrire constructeur

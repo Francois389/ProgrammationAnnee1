@@ -16,6 +16,10 @@ public class PointGPS {
     /** Longitude en dégrées décimal */
     private double longitude;
     
+    /**
+     * @param latitude
+     * @param longitude
+     */
     public PointGPS(double latitude, double longitude) {
         // TODO Auto-generated constructor stub
         if (    latitude < -90.0  ||  90.0 < latitude
@@ -28,19 +32,31 @@ public class PointGPS {
         this.longitude = longitude;
     }
     
+    /**
+     * @return
+     */
     public double getLatDeg () {
         return latitude;
     }
 
+    /**
+     * @return
+     */
     public double getLatRad () {
         return Math.toRadians(latitude);
     }
 
+    /**
+     * @return
+     */
     public double getLonDeg () {
         return longitude;
     }
     
 
+    /**
+     * @return
+     */
     public double getLonRad () {
         return Math.toRadians(longitude);
     }
