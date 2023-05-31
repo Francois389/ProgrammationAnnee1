@@ -6,6 +6,7 @@ package test.iut.info1.structure;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import iut.info1.structure.Pile;
@@ -17,56 +18,36 @@ import iut.info1.structure.Pile;
  */
 class TestPile {
 
-    /**
-     * Test method for {@link iut.info1.structure.Pile#Pile()}.
-     */
-    @Test
-    void testPileOk() {
-        // TODO
-        Pile a = new Pile();
-        assertEquals(Pile.class, a.getClass());
-    }
+	@BeforeEach
+	void pReset() {
+		Pile p = new Pile();
+	}
+	
+	@Test
+	void testPile() {
+		Pile p = new Pile();
+		assertTrue(p.estVide());
+	}
 
-    /**
-     * Test method for {@link iut.info1.structure.Pile#Pile()}.
-     */
-    @Test
-    void testPileNOk() {
-        fail("Not yet implemented"); // TODO
-    }
-
-    /**
-     * Test method for {@link iut.info1.structure.Pile#getSommet()}.
-     */
-    @Test
-    void testGetSommet() {
-        fail("Not yet implemented"); // TODO
-    }
-
-    /**
-     * Test method for {@link iut.info1.structure.Pile#empiler(java.lang.Object)}.
-     */
-    @Test
-    void testEmpiler() {
-        // TODO
-        Pile a = new Pile();
-        
-    }
-
-    /**
-     * Test method for {@link iut.info1.structure.Pile#depiler()}.
-     */
-    @Test
-    void testDepiler() {
-        fail("Not yet implemented"); // TODO
-    }
-
-    /**
-     * Test method for {@link iut.info1.structure.Pile#estVide()}.
-     */
-    @Test
-    void testEstVide() {
-        fail("Not yet implemented"); // TODO
-    }
+	@Test
+	void testEstVide() {
+		Pile p = new Pile();
+		assertTrue(p.estVide());
+		
+		p.empiler("un element a empiler");
+		assertFalse(p.estVide());
+	}
+	
+	@Test
+	void testGetSommet() {
+		
+	}
+	
+	@Test
+	void testEmpiler() {
+		Pile pile = new Pile();
+		assertEquals(Pile.class, pile.empiler("element a empiler").getClass());
+		assertFalse(pile.estVide());
+	}
 
 }
