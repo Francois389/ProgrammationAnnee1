@@ -2,7 +2,7 @@
  * TestPersonneSansJUnit.java                       23 mars 2023
  * IUT de Rodez, pas de copyleft, pas de copyright
  */
-package iut.info1.population.test;
+package test.iut.info1.population;
 
 
 
