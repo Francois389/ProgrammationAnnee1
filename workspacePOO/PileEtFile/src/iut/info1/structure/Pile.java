@@ -52,9 +52,11 @@ public class Pile<E> {
     }
     
     /**
-     * @return
+     * @return la pile qu'on a dépiler
      */
     public Pile<E> depiler() {
+    	
+    	taille--;
         return this;
     }
     
@@ -66,7 +68,7 @@ public class Pile<E> {
     }
     
     /**
-     * @return
+     * @return true si la Pile est vide
      */
     public boolean estVide() {
     	return taille == 0;

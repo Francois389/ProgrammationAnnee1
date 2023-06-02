@@ -13,7 +13,7 @@ import java.util.Arrays;
  * @author info1 2022-2023
  * @param <E> type (polymorphe) des éléments empilés
  */
-public class PileContigue<E> {
+public class PileContigue<E> implements Pile<E> {
     
     /** Nombre max d'objets empilables initialement */
     private static final int CAPACITE_INITIALE = 10;
@@ -36,7 +36,8 @@ public class PileContigue<E> {
      * Prédicat vérifiant que cette pile ne référence aucun élément
      * @return true si aucun élément empilé, false sinon
      */
-    public boolean isVide() {
+    @Override
+	public boolean isVide() {
         return taille == 0; 
     }
     
@@ -48,10 +49,9 @@ public class PileContigue<E> {
      * @return référence de cette pile après empilement (style fonctionnel)
      * @throws NullPointerException si aAjouter est null
      */
-    public PileContigue<E> empiler(E aAjouter) {
-        if (aAjouter == null) {
-            throw new NullPointerException("Impossible d'empiler la réf. null");
-        }
+    @Override
+	public Pile<E> empiler(E aAjouter) {
+    	Pile.super.empiler(aAjouter);
         assurerCapacite();
         elements[taille] = aAjouter;
         taille++;
@@ -79,7 +79,8 @@ public class PileContigue<E> {
      * @return cette pile après "dépilement" (style fonctionnel)
      * @throws PileVideException si cette pile est vide
      */
-    public PileContigue<E> depiler() {
+    @Override
+	public Pile<E> depiler() {
         preConditionPileNonVide();
         taille--;
         return this;
@@ -90,7 +91,8 @@ public class PileContigue<E> {
      * @return référence du dernier élément empilé
      * @throws PileVideException si cette pile est vide
      */
-    public E sommet() {
+    @Override
+	public E sommet() {
         preConditionPileNonVide();
         return elements[taille -1];
     }

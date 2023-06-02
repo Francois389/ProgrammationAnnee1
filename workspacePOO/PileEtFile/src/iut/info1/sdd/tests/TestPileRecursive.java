@@ -1,5 +1,5 @@
 /*
- * TestPileContigue.java                                    23 mai 2023
+ * TestPileRecursive.java                                    23 mai 2023
  * IUT de Rodez, info1 2022-2023, aucun copyright ni copyleft
  */
 package iut.info1.sdd.tests;
@@ -12,17 +12,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import iut.info1.sdd.Pile;
-import iut.info1.sdd.PileContigue;
+import iut.info1.sdd.PileRecursive;
 import iut.info1.sdd.PileVideException;
 
 /** 
- * Tests unitaires de iut.info1.sdd.PileContigue
+ * Tests unitaires de iut.info1.sdd.PileRecursive
  * @author info1 2022-2023
  */
-class TestPileContigue {
+class TestPileRecursive {
     
     /* fixture de test */
-    private Pile<Double> lifoVide = new PileContigue<>();
+    private Pile<Double> lifoVide = new PileRecursive<>();
     
     private Pile<Integer> pileEntier;
     
@@ -33,32 +33,32 @@ class TestPileContigue {
     @BeforeEach
     void creerFixturePilesNonVides() {
         
-        pileEntier = new PileContigue<>();
+        pileEntier = new PileRecursive<>();
         pileEntier.empiler(Integer.valueOf(12));
         pileEntier.empiler(Integer.valueOf(-3));
         
-        pileTexte = new PileContigue<>();
+        pileTexte = new PileRecursive<>();
         pileTexte.empiler("un");
         pileTexte.empiler("deux");
         pileTexte.empiler("trois");
         
-        grandePile =  new PileContigue<>();
+        grandePile =  new PileRecursive<>();
         for (int valeur = 1 ; valeur <= 100000 ; valeur++) {
             grandePile.empiler(Integer.valueOf(valeur));
         }
     }
 
     /**
-     * Test method for {@link iut.info1.sdd.PileContigue#PileContigue()}.
+     * Test method for {@link iut.info1.sdd.PileRecursive#PileRecursive()}.
      */
     @Test
-    void testPileContigue() {
-        assertTrue(new PileContigue<Scanner>().isVide());
+    void testPileRecursive() {
+        assertTrue(new PileRecursive<Scanner>().isVide());
         assertFalse(pileTexte.isVide());
     }
 
     /**
-     * Test method for {@link iut.info1.sdd.PileContigue#isVide()}.
+     * Test method for {@link iut.info1.sdd.PileRecursive#isVide()}.
      */
     @Test
     void testIsVide() {
@@ -67,14 +67,14 @@ class TestPileContigue {
     }
 
     /**
-     * Test method for {@link iut.info1.sdd.PileContigue#empiler(java.lang.Object)}.
+     * Test method for {@link iut.info1.sdd.PileRecursive#empiler(java.lang.Object)}.
      */
     @Test
     void testEmpiler() {
         assertThrows(NullPointerException.class, 
                      ()->pileTexte.empiler(null));
         
-        Pile<Number> grande =  new PileContigue<Number>();
+        Pile<Number> grande =  new PileRecursive<Number>();
         for (int valeur = 1 ; valeur <= 100000 ; valeur++) {
             final Integer nombre = Integer.valueOf(valeur);
             assertDoesNotThrow(()->grande.empiler(nombre));
@@ -82,7 +82,7 @@ class TestPileContigue {
     }
 
     /**
-     * Test method for {@link iut.info1.sdd.PileContigue#depiler()}.
+     * Test method for {@link iut.info1.sdd.PileRecursive#depiler()}.
      */
     @Test
     void testDepiler() {
@@ -95,7 +95,7 @@ class TestPileContigue {
     }
 
     /**
-     * Test method for {@link iut.info1.sdd.PileContigue#sommet()}.
+     * Test method for {@link iut.info1.sdd.PileRecursive#sommet()}.
      */
     @Test
     void testSommet() {
